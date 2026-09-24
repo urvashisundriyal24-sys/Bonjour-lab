@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Negation | Bonjour Lab</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef7ff, #fff0f7, #fff9df);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #ff416c, #7b2ff7);
+    color: white;
+    text-align: center;
+    padding: 38px 20px;
+    border-radius: 0 0 35px 35px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* MAIN */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* INTRO */
+
+.intro {
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    color: #7b2ff7;
+    margin-bottom: 12px;
+}
+
+/* TITLES */
+
+.section-title {
+    text-align: center;
+    color: #6a1b9a;
+    font-size: 28px;
+    margin: 35px 0 20px;
+}
+
+/* RULE BOX */
+
+.rule-box {
+    background: linear-gradient(135deg, #ffd6e7, #e5d6ff);
+    padding: 30px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.rule {
+    font-size: 25px;
+    font-weight: bold;
+    color: #6a1b9a;
+    margin: 15px 0;
+}
+
+.highlight {
+    color: #e91e63;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card:nth-child(1) {
+    background: #ffd9e6;
+}
+
+.card:nth-child(2) {
+    background: #dceeff;
+}
+
+.card:nth-child(3) {
+    background: #e0ffd9;
+}
+
+.card:nth-child(4) {
+    background: #fff0b8;
+}
+
+.card h3 {
+    color: #6a1b9a;
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    margin: 7px 0;
+}
+
+.example {
+    background: rgba(255,255,255,0.75);
+    padding: 12px;
+    border-radius: 13px;
+    margin-top: 12px;
+}
+
+.listen-btn {
+    border: none;
+    background: #7b2ff7;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.listen-btn:hover {
+    background: #5d20c9;
+}
+
+/* TABLE */
+
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #7b2ff7;
+    color: white;
+}
+
+tr:hover {
+    background: #faf0ff;
+}
+
+/* TIP */
+
+.tip {
+    background: linear-gradient(135deg, #fff4a8, #ffd8e8);
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.tip h3 {
+    color: #6a1b9a;
+    margin-bottom: 12px;
+}
+
+/* ACTIVITY */
+
+.activity {
+    background: white;
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.question {
+    font-size: 23px;
+    color: #6a1b9a;
+    margin: 20px 0;
+}
+
+.option {
+    border: none;
+    padding: 12px 22px;
+    margin: 7px;
+    border-radius: 20px;
+    background: #e7d7ff;
+    color: #4a148c;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.option:hover {
+    transform: scale(1.05);
+    background: #d2b5ff;
+}
+
+.feedback {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+/* SCORE */
+
+.score-box {
+    background: #e8f7ff;
+    padding: 22px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 35px auto;
+    padding: 14px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>🚫 Negation</h1>
+
+    <p>
+        Learn how to say "not" in French!
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+        <h2>✨ Making Negative Sentences</h2>
+
+        <p>
+            In French, the most common way to make a sentence negative
+            is to use <strong>ne ... pas</strong>.
+        </p>
+
+        <p style="margin-top:10px;">
+            Think of it as putting the verb inside a little negative sandwich! 🥪
+        </p>
+
+    </div>
+
+
+    <!-- BASIC RULE -->
+
+    <h2 class="section-title">
+        📌 The Basic Rule
+    </h2>
+
+
+    <div class="rule-box">
+
+        <p>Positive sentence:</p>
+
+        <div class="rule">
+            Je parle.
+        </div>
+
+        <p>Negative sentence:</p>
+
+        <div class="rule">
+            Je <span class="highlight">ne</span> parle
+            <span class="highlight">pas</span>.
+        </div>
+
+        <p style="margin-top:15px;">
+            <strong>ne + verb + pas</strong>
+        </p>
+
+    </div>
+
+
+    <!-- EXAMPLES -->
+
+    <h2 class="section-title">
+        🌟 Positive → Negative
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>🗣️ Parler</h3>
+
+            <p>
+                Positive:
+                <strong>Je parle.</strong>
+            </p>
+
+            <p>
+                Negative:
+                <strong>Je ne parle pas.</strong>
+            </p>
+
+            <div class="example">
+                I speak.
+                <br>
+                I do not speak.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je ne parle pas')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🍎 Manger</h3>
+
+            <p>
+                Positive:
+                <strong>Je mange.</strong>
+            </p>
+
+            <p>
+                Negative:
+                <strong>Je ne mange pas.</strong>
+            </p>
+
+            <div class="example">
+                I eat.
+                <br>
+                I do not eat.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je ne mange pas')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>📚 Étudier</h3>
+
+            <p>
+                Positive:
+                <strong>J'étudie.</strong>
+            </p>
+
+            <p>
+                Negative:
+                <strong>Je n'étudie pas.</strong>
+            </p>
+
+            <div class="example">
+                I study.
+                <br>
+                I do not study.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je n étudie pas')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🏠 Habiter</h3>
+
+            <p>
+                Positive:
+                <strong>J'habite à Paris.</strong>
+            </p>
+
+            <p>
+                Negative:
+                <strong>Je n'habite pas à Paris.</strong>
+            </p>
+
+            <div class="example">
+                I live in Paris.
+                <br>
+                I do not live in Paris.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je n habite pas à Paris')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- NE BECOMES N' -->
+
+    <h2 class="section-title">
+        🔤 When Does "ne" Become "n'"?
+    </h2>
+
+
+    <div class="tip">
+
+        <h3>💡 Before a vowel</h3>
+
+        <p>
+            When the verb starts with a vowel sound,
+            <strong>ne</strong> becomes <strong>n'</strong>.
+        </p>
+
+        <p style="margin-top:12px;">
+            Je + aime ❌
+        </p>
+
+        <p style="margin-top:8px;">
+            Je <strong>n'aime pas</strong> ✅
+        </p>
+
+        <p style="margin-top:12px;">
+            Je <strong>n'habite pas</strong> à Paris. ✅
+        </p>
+
+    </div>
+
+
+    <!-- TABLE -->
+
+    <h2 class="section-title">
+        📚 More Examples
+    </h2>
+
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>Positive</th>
+                <th>Negative</th>
+                <th>Meaning</th>
+            </tr>
+
+            <tr>
+                <td>Je parle.</td>
+                <td>Je ne parle pas.</td>
+                <td>I do not speak.</td>
+            </tr>
+
+            <tr>
+                <td>Tu manges.</td>
+                <td>Tu ne manges pas.</td>
+                <td>You do not eat.</td>
+            </tr>
+
+            <tr>
+                <td>Il travaille.</td>
+                <td>Il ne travaille pas.</td>
+                <td>He does not work.</td>
+            </tr>
+
+            <tr>
+                <td>Elle chante.</td>
+                <td>Elle ne chante pas.</td>
+                <td>She does not sing.</td>
+            </tr>
+
+            <tr>
+                <td>Nous étudions.</td>
+                <td>Nous n'étudions pas.</td>
+                <td>We do not study.</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- ACTIVITY -->
+
+    <h2 class="section-title">
+        🎯 Make It Negative
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            How do you make this sentence negative?
+        </p>
+
+        <div class="question">
+            Je parle.
+        </div>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('a')">
+
+            Je parle ne pas.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('b')">
+
+            Je ne parle pas.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('c')">
+
+            Je pas parle.
+
+        </button>
+
+
+        <div
+            id="feedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <h2 class="section-title">
+        🏆 Quick Quiz
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Choose the correct negative sentence:
+        </p>
+
+        <div class="question">
+            Elle travaille.
+        </div>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('a')">
+
+            Elle ne travaille pas.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('b')">
+
+            Elle pas travaille.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('c')">
+
+            Elle travaille ne pas.
+
+        </button>
+
+
+        <div
+            id="quizFeedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- MEMORY TIP -->
+
+    <div class="score-box">
+
+        <h2>🧠 Easy Memory Trick</h2>
+
+        <p style="margin-top:12px;">
+            Remember:
+        </p>
+
+        <p style="font-size:22px; margin-top:10px;">
+            <strong>NE + VERB + PAS</strong>
+        </p>
+
+        <p style="margin-top:12px;">
+            The verb goes in the middle! 🎯
+        </p>
+
+    </div>
+
+
+    <a
+        href="a1.html"
+        class="back-btn">
+
+        ← Back to A1 Grammar
+
+    </a>
+
+
+</div>
+
+
+<footer>
+
+    🌸 Bonjour Lab • Learn French step by step
+
+</footer>
+
+
+<script>
+
+function speak(text) {
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.85;
+
+    window.speechSynthesis.cancel();
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+function checkAnswer(answer) {
+
+    const feedback =
+        document.getElementById("feedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Correct! The pattern is <strong>ne + verb + pas</strong>.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Not quite. Remember: <strong>ne + verb + pas</strong>.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+
+function quizAnswer(answer) {
+
+    const feedback =
+        document.getElementById("quizFeedback");
+
+
+    if (answer === "a") {
+
+        feedback.innerHTML =
+            "🎉 Excellent! <strong>Elle ne travaille pas.</strong> is correct.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! Put <strong>ne</strong> before the verb and <strong>pas</strong> after it.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

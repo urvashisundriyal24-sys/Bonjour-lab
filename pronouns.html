@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Subject Pronouns | Bonjour Lab</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #fff1f7, #eef4ff, #f5fff8);
+            color: #303044;
+        }
+
+        /* HEADER */
+
+        header {
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #ff6fa8, #8b7cff, #5fc8ff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "✨";
+            position: absolute;
+            left: 10%;
+            top: 20px;
+            font-size: 35px;
+        }
+
+        header::after {
+            content: "🌸";
+            position: absolute;
+            right: 10%;
+            bottom: 20px;
+            font-size: 35px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 42px;
+        }
+
+        header p {
+            font-size: 19px;
+            margin: 12px 0 0;
+        }
+
+        /* MAIN */
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        /* INTRO */
+
+        .intro {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(70, 70, 120, 0.10);
+            margin-bottom: 35px;
+        }
+
+        .intro h2 {
+            color: #7257d8;
+            font-size: 29px;
+            margin-top: 0;
+        }
+
+        .intro p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            display: inline-block;
+            background: #eee9ff;
+            color: #654bc5;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        /* SECTION TITLE */
+
+        .section-title {
+            text-align: center;
+            font-size: 30px;
+            margin: 40px 0 25px;
+            color: #5544a8;
+        }
+
+        /* PRONOUN CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 24px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(70, 70, 120, 0.10);
+            transition: 0.25s ease;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #c9c0ff;
+        }
+
+        .icon {
+            font-size: 48px;
+        }
+
+        .pronoun {
+            font-size: 34px;
+            font-weight: 800;
+            color: #7257d8;
+            margin: 10px 0 5px;
+        }
+
+        .meaning {
+            font-size: 17px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .use {
+            background: #f7f4ff;
+            padding: 14px;
+            border-radius: 15px;
+            margin-top: 16px;
+            line-height: 1.6;
+        }
+
+        .use strong {
+            color: #624cc2;
+        }
+
+        .listen {
+            background: linear-gradient(135deg, #ff70aa, #7869e8);
+            border: none;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .listen:hover {
+            transform: scale(1.04);
+        }
+
+        /* MEMORY BOX */
+
+        .memory {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #fff5bd, #fffde8);
+            border-radius: 25px;
+            padding: 28px;
+            box-shadow: 0 8px 20px rgba(100,80,30,0.08);
+        }
+
+        .memory h2 {
+            margin-top: 0;
+            color: #8a6500;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .memory-item {
+            background: white;
+            padding: 14px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .memory-item strong {
+            display: block;
+            color: #6a55c9;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* MINI ACTIVITY */
+
+        .activity {
+            background: white;
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(70,70,120,0.10);
+            text-align: center;
+        }
+
+        .activity h2 {
+            color: #7257d8;
+        }
+
+        .activity-word {
+            font-size: 27px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #444;
+        }
+
+        .choice-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .choice-buttons button {
+            background: #eee9ff;
+            color: #5d4cb4;
+            border: 2px solid #d9d0ff;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .choice-buttons button:hover {
+            background: #dcd4ff;
+        }
+
+        #activityResult {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* QUIZ */
+
+        .quiz {
+            background: white;
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(70,70,120,0.10);
+        }
+
+        .quiz h2 {
+            text-align: center;
+            color: #7257d8;
+        }
+
+        .question {
+            background: #f8f7ff;
+            padding: 18px;
+            border-radius: 15px;
+            margin: 18px 0;
+        }
+
+        select {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        .check {
+            display: block;
+            margin: 25px auto 0;
+            background: linear-gradient(135deg, #ff70aa, #7869e8);
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* BACK BUTTON */
+
+        .back {
+            text-align: center;
+            margin: 40px 0 10px;
+        }
+
+        .back button {
+            background: #34344b;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 45px;
+            background: #29293b;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .intro,
+            .activity,
+            .quiz,
+            .memory {
+                padding: 22px;
+            }
+
+            .pronoun {
+                font-size: 30px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>👤 Subject Pronouns</h1>
+
+    <p>Les pronoms sujets — Learn who is doing the action!</p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+        <h2>🌟 Meet the French Pronouns!</h2>
+
+        <p>
+            A subject pronoun tells us <strong>who</strong> is doing an action.
+        </p>
+
+        <p>
+            Think of it as the little word that comes before the verb.
+        </p>
+
+        <div class="highlight">
+            Je + parle = I speak
+        </div>
+
+    </div>
+
+
+    <!-- PRONOUNS -->
+
+    <h2 class="section-title">🧩 The 8 Essential Pronouns</h2>
+
+
+    <div class="cards">
+
+
+        <!-- JE -->
+
+        <div class="card">
+
+            <div class="icon">🙋</div>
+
+            <div class="pronoun">Je</div>
+
+            <div class="meaning">I</div>
+
+            <div class="use">
+                <strong>Je parle français.</strong><br>
+                I speak French.
+            </div>
+
+            <button class="listen" onclick="speak('Je')">
+                🔊 Listen
+            </button>
+
+        </div>
+
+
+        <!-- TU -->
+
+        <div class="card">
+
+            <div class="icon">👉</div>
+
+            <div class="pronoun">Tu</div>
+
+            <div class="meaning">You — informal</div>
+
+            <div class="use">
+                <strong>Tu aimes le café.</strong><br>
+                You like coffee.
+            </div>
+
+            <button class="listen" onclick="speak('Tu')">
+                🔊 Listen
+            </button>
+
+        </div>
+
+
+        <!-- IL -->
+
+        <div class="card">
+
+            <div class="icon">👨</div>
+
+            <div class="pronoun">Il</div>
+
+            <div class="meaning">He</div>
+
+            <div class="use">
+                <strong>Il habite à Delhi.</strong><br>
+                He lives in Delhi.
+            </div>
+
+            <button class="listen" onclick="speak('Il')">
+                🔊 Listen
+            </button>
+
+        </div>
+
+
+        <!-- ELLE -->
+
+        <div class="card">
+
+            <div class="icon">👩</div>
+
+            <div class="pronoun">Elle</div>
+
+            <div class="meaning">She</div>
+
+            <div class="use">
+                <strong>Elle est étudiante.</strong><br>
+                She is a student.
+            </div>
+
+            <button class="listen" onclick="speak('Elle')">
+                🔊 Listen
+            </button>
+
+        </div>
+
+
+        <!-- NOUS -->
+
+        <div class="card">
+
+            <div class="icon">👭</div>
+
+            <div class="pronoun">Nous</div>
+
+            <div class="meaning">We</div>
+
+            <div class="use">
+                <strong>Nous sommes amis.</strong><br>
+                We are friends.
+            </div>
+
+            <button class="listen" onclick="speak('Nous')">
+                🔊 Listen
+            </button>
+
+        </div>
+
+
+        <!-- VOUS -->
+
+        <div class="card">
+
+            <div class="icon">👋</div>
+
+            <div class="pronoun">Vous</div>
+
+            <div class="meaning">You — formal / plural</div>
+
+            <div class="use">
+                <strong>Vous êtes professeur.</strong><br>
+                You are a teacher.
+            </div>
+
+            <button class="listen" onclick="speak('Vous')">
+                🔊 Listen
+            </button>
+
+        </div>
+
+
+        <!-- ILS -->
+
+        <div class="card">
+
+            <div class="icon">👨‍👨‍👦</div>
+
+            <div class="pronoun">Ils</div>
+
+            <div class="meaning">They — masculine / mixed</div>
+
+            <div class="use">
+                <strong>Ils parlent français.</strong><br>
+                They speak French.
+            </div>
+
+            <button class="listen" onclick="speak('Ils')">
+                🔊 Listen
+            </button>
+
+        </div>
+
+
+        <!-- ELLES -->
+
+        <div class="card">
+
+            <div class="icon">👩‍👩‍👧</div>
+
+            <div class="pronoun">Elles</div>
+
+            <div class="meaning">They — feminine</div>
+
+            <div class="use">
+                <strong>Elles sont étudiantes.</strong><br>
+                They are students.
+            </div>
+
+            <button class="listen" onclick="speak('Elles')">
+                🔊 Listen
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- MEMORY -->
+
+    <div class="memory">
+
+        <h2>🧠 Super Easy Memory Trick</h2>
+
+        <div class="memory-grid">
+
+            <div class="memory-item">
+                <strong>Je</strong>
+                I
+            </div>
+
+            <div class="memory-item">
+                <strong>Tu</strong>
+                You
+            </div>
+
+            <div class="memory-item">
+                <strong>Il</strong>
+                He
+            </div>
+
+            <div class="memory-item">
+                <strong>Elle</strong>
+                She
+            </div>
+
+            <div class="memory-item">
+                <strong>Nous</strong>
+                We
+            </div>
+
+            <div class="memory-item">
+                <strong>Vous</strong>
+                You
+            </div>
+
+            <div class="memory-item">
+                <strong>Ils</strong>
+                They
+            </div>
+
+            <div class="memory-item">
+                <strong>Elles</strong>
+                They
+            </div>
+
+        </div>
+
+        <p>
+            💡 <strong>Important:</strong> “Vous” can mean one person formally
+            or several people. “Ils” is used for a masculine group or a mixed group.
+        </p>
+
+    </div>
+
+
+    <!-- MINI ACTIVITY -->
+
+    <div class="activity">
+
+        <h2>🎯 Who Am I?</h2>
+
+        <p>Choose the correct French pronoun.</p>
+
+        <div class="activity-word" id="activityQuestion">
+            I
+        </div>
+
+        <div class="choice-buttons">
+
+            <button onclick="choosePronoun('Je')">Je</button>
+
+            <button onclick="choosePronoun('Tu')">Tu</button>
+
+            <button onclick="choosePronoun('Il')">Il</button>
+
+            <button onclick="choosePronoun('Elle')">Elle</button>
+
+            <button onclick="choosePronoun('Nous')">Nous</button>
+
+            <button onclick="choosePronoun('Vous')">Vous</button>
+
+        </div>
+
+        <div id="activityResult"></div>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <div class="quiz">
+
+        <h2>📝 Quick Challenge</h2>
+
+
+        <div class="question">
+
+            <strong>1. Which pronoun means “I”?</strong>
+
+            <br>
+
+            <select id="q1">
+
+                <option value="">Choose</option>
+
+                <option value="je">Je</option>
+
+                <option value="tu">Tu</option>
+
+                <option value="nous">Nous</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="question">
+
+            <strong>2. Which pronoun means “She”?</strong>
+
+            <br>
+
+            <select id="q2">
+
+                <option value="">Choose</option>
+
+                <option value="il">Il</option>
+
+                <option value="elle">Elle</option>
+
+                <option value="ils">Ils</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="question">
+
+            <strong>3. Which pronoun means “We”?</strong>
+
+            <br>
+
+            <select id="q3">
+
+                <option value="">Choose</option>
+
+                <option value="vous">Vous</option>
+
+                <option value="nous">Nous</option>
+
+                <option value="elles">Elles</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="question">
+
+            <strong>4. Which pronoun is used for formal “you”?</strong>
+
+            <br>
+
+            <select id="q4">
+
+                <option value="">Choose</option>
+
+                <option value="tu">Tu</option>
+
+                <option value="vous">Vous</option>
+
+                <option value="je">Je</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="question">
+
+            <strong>5. Which pronoun means “They” for a feminine group?</strong>
+
+            <br>
+
+            <select id="q5">
+
+                <option value="">Choose</option>
+
+                <option value="ils">Ils</option>
+
+                <option value="elles">Elles</option>
+
+                <option value="nous">Nous</option>
+
+            </select>
+
+        </div>
+
+
+        <button class="check" onclick="checkQuiz()">
+            ✨ Check My Score
+        </button>
+
+
+        <div id="result"></div>
+
+    </div>
+
+
+    <!-- BACK -->
+
+    <div class="back">
+
+        <a href="a1.html">
+
+            <button>
+                ⬅️ Back to A1 Grammar
+            </button>
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<footer>
+
+    🌸 Learn French with Bonjour Lab 🌸
+
+</footer>
+
+
+<script>
+
+
+/* PRONUNCIATION */
+
+function speak(text) {
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.85;
+
+    speech.pitch = 1;
+
+    speech.lang = "fr-FR";
+
+    window.speechSynthesis.cancel();
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+/* MINI ACTIVITY */
+
+const activityData = [
+
+    {
+        question: "I",
+        answer: "Je"
+    },
+
+    {
+        question: "You — informal",
+        answer: "Tu"
+    },
+
+    {
+        question: "He",
+        answer: "Il"
+    },
+
+    {
+        question: "She",
+        answer: "Elle"
+    },
+
+    {
+        question: "We",
+        answer: "Nous"
+    },
+
+    {
+        question: "You — formal",
+        answer: "Vous"
+    }
+
+];
+
+
+let currentActivity = 0;
+
+
+function choosePronoun(answer) {
+
+    const result = document.getElementById("activityResult");
+
+    if (answer === activityData[currentActivity].answer) {
+
+        result.innerHTML = "🎉 Correct! Great job!";
+
+        result.style.color = "#3b9b67";
+
+        setTimeout(function() {
+
+            currentActivity++;
+
+            if (currentActivity >= activityData.length) {
+
+                currentActivity = 0;
+
+            }
+
+            document.getElementById("activityQuestion").innerText =
+                activityData[currentActivity].question;
+
+            result.innerHTML = "";
+
+        }, 900);
+
+    } else {
+
+        result.innerHTML = "💭 Try again!";
+
+        result.style.color = "#d85b75";
+
+    }
+
+}
+
+
+/* QUIZ */
+
+function checkQuiz() {
+
+    let score = 0;
+
+    if (document.getElementById("q1").value === "je") {
+        score++;
+    }
+
+    if (document.getElementById("q2").value === "elle") {
+        score++;
+    }
+
+    if (document.getElementById("q3").value === "nous") {
+        score++;
+    }
+
+    if (document.getElementById("q4").value === "vous") {
+        score++;
+    }
+
+    if (document.getElementById("q5").value === "elles") {
+        score++;
+    }
+
+
+    const result = document.getElementById("result");
+
+
+    if (score === 5) {
+
+        result.innerHTML = "🏆 Perfect! 5 / 5";
+
+    } else if (score >= 3) {
+
+        result.innerHTML =
+            "🌟 Great work! You scored " + score + " / 5";
+
+    } else {
+
+        result.innerHTML =
+            "💪 Keep practising! You scored " + score + " / 5";
+
+    }
+
+}
+
+
+</script>
+
+</body>
+</html>

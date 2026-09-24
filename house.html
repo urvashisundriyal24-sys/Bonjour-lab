@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House & Furniture | Bonjour Lab</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef7ff, #fff4e6);
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+            border-radius: 0 0 35px 35px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #6650a8;
+            margin: 35px 0 20px;
+            font-size: 28px;
+        }
+
+        .house-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 22px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .emoji {
+            font-size: 42px;
+        }
+
+        .french {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6650a8;
+            margin: 10px 0;
+        }
+
+        .meaning {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .pronunciation {
+            background: #f2efff;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            border: none;
+            background: #6c5ce7;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #5748c7;
+        }
+
+        .sentences {
+            background: white;
+            margin-top: 35px;
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .sentence {
+            background: #f7f5ff;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 12px 0;
+        }
+
+        .sentence strong {
+            color: #6650a8;
+        }
+
+        .tip {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 22px;
+            background: #fff0b8;
+            text-align: center;
+        }
+
+        .quiz {
+            background: white;
+            margin-top: 30px;
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .quiz button {
+            margin: 6px;
+            background: #ff8a65;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .back {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            background: #555;
+            color: white;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 22px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏠 House & Furniture</h1>
+    <p>Learn useful vocabulary for your home</p>
+</header>
+
+<div class="container">
+
+    <h2 class="section-title">🏡 Around the House</h2>
+
+    <div class="house-grid">
+
+        <div class="card">
+            <div class="emoji">🏠</div>
+            <div class="french">La maison</div>
+            <div class="meaning">House</div>
+            <div class="pronunciation">Pronunciation: lah meh-zon</div>
+            <button onclick="speak('la maison')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🚪</div>
+            <div class="french">La porte</div>
+            <div class="meaning">Door</div>
+            <div class="pronunciation">Pronunciation: lah port</div>
+            <button onclick="speak('la porte')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🪟</div>
+            <div class="french">La fenêtre</div>
+            <div class="meaning">Window</div>
+            <div class="pronunciation">Pronunciation: lah fuh-netr</div>
+            <button onclick="speak('la fenêtre')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🌳</div>
+            <div class="french">Le jardin</div>
+            <div class="meaning">Garden</div>
+            <div class="pronunciation">Pronunciation: luh zhar-dan</div>
+            <button onclick="speak('le jardin')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🪜</div>
+            <div class="french">L'escalier</div>
+            <div class="meaning">Stairs</div>
+            <div class="pronunciation">Pronunciation: les-kah-lee-ay</div>
+            <button onclick="speak('lescalier')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🏢</div>
+            <div class="french">L'appartement</div>
+            <div class="meaning">Apartment</div>
+            <div class="pronunciation">Pronunciation: lah-par-tuh-mon</div>
+            <button onclick="speak('lappartement')">🔊 Listen</button>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">🛋️ Rooms</h2>
+
+    <div class="house-grid">
+
+        <div class="card">
+            <div class="emoji">🛋️</div>
+            <div class="french">Le salon</div>
+            <div class="meaning">Living room</div>
+            <div class="pronunciation">Pronunciation: luh sah-lon</div>
+            <button onclick="speak('le salon')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🛏️</div>
+            <div class="french">La chambre</div>
+            <div class="meaning">Bedroom</div>
+            <div class="pronunciation">Pronunciation: lah shahm-bruh</div>
+            <button onclick="speak('la chambre')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🍳</div>
+            <div class="french">La cuisine</div>
+            <div class="meaning">Kitchen</div>
+            <div class="pronunciation">Pronunciation: lah kwee-zeen</div>
+            <button onclick="speak('la cuisine')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🛁</div>
+            <div class="french">La salle de bains</div>
+            <div class="meaning">Bathroom</div>
+            <div class="pronunciation">Pronunciation: lah sal duh ban</div>
+            <button onclick="speak('la salle de bains')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🍽️</div>
+            <div class="french">La salle à manger</div>
+            <div class="meaning">Dining room</div>
+            <div class="pronunciation">Pronunciation: lah sal ah mahn-zhay</div>
+            <button onclick="speak('la salle à manger')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🚽</div>
+            <div class="french">Les toilettes</div>
+            <div class="meaning">Toilet / Restroom</div>
+            <div class="pronunciation">Pronunciation: lay twa-let</div>
+            <button onclick="speak('les toilettes')">🔊 Listen</button>
+        </div>
+
+    </div>
+
+    <h2 class="section-title">🪑 Furniture</h2>
+
+    <div class="house-grid">
+
+        <div class="card">
+            <div class="emoji">🛏️</div>
+            <div class="french">Le lit</div>
+            <div class="meaning">Bed</div>
+            <div class="pronunciation">Pronunciation: luh lee</div>
+            <button onclick="speak('le lit')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🪑</div>
+            <div class="french">La chaise</div>
+            <div class="meaning">Chair</div>
+            <div class="pronunciation">Pronunciation: lah shez</div>
+            <button onclick="speak('la chaise')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🛋️</div>
+            <div class="french">Le canapé</div>
+            <div class="meaning">Sofa</div>
+            <div class="pronunciation">Pronunciation: luh ka-na-pay</div>
+            <button onclick="speak('le canapé')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🪵</div>
+            <div class="french">La table</div>
+            <div class="meaning">Table</div>
+            <div class="pronunciation">Pronunciation: lah tabl</div>
+            <button onclick="speak('la table')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🚪</div>
+            <div class="french">L'armoire</div>
+            <div class="meaning">Wardrobe</div>
+            <div class="pronunciation">Pronunciation: lar-mwar</div>
+            <button onclick="speak('larmoire')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🪞</div>
+            <div class="french">Le miroir</div>
+            <div class="meaning">Mirror</div>
+            <div class="pronunciation">Pronunciation: luh mee-rwar</div>
+            <button onclick="speak('le miroir')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">💡</div>
+            <div class="french">La lampe</div>
+            <div class="meaning">Lamp</div>
+            <div class="pronunciation">Pronunciation: lah lamp</div>
+            <button onclick="speak('la lampe')">🔊 Listen</button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">📚</div>
+            <div class="french">L'étagère</div>
+            <div class="meaning">Shelf</div>
+            <div class="pronunciation">Pronunciation: lay-ta-zhehr</div>
+            <button onclick="speak('letagere')">🔊 Listen</button>
+        </div>
+
+    </div>
+
+    <div class="sentences">
+
+        <h2 class="section-title">💬 Useful Sentences</h2>
+
+        <div class="sentence">
+            <strong>J'habite dans une maison.</strong><br>
+            I live in a house.
+            <br><br>
+            <button onclick="speak('J habite dans une maison')">🔊 Listen</button>
+        </div>
+
+        <div class="sentence">
+            <strong>Ma chambre est grande.</strong><br>
+            My bedroom is big.
+            <br><br>
+            <button onclick="speak('Ma chambre est grande')">🔊 Listen</button>
+        </div>
+
+        <div class="sentence">
+            <strong>La cuisine est petite.</strong><br>
+            The kitchen is small.
+            <br><br>
+            <button onclick="speak('La cuisine est petite')">🔊 Listen</button>
+        </div>
+
+        <div class="sentence">
+            <strong>Le canapé est dans le salon.</strong><br>
+            The sofa is in the living room.
+            <br><br>
+            <button onclick="speak('Le canapé est dans le salon')">🔊 Listen</button>
+        </div>
+
+        <div class="sentence">
+            <strong>La lampe est sur la table.</strong><br>
+            The lamp is on the table.
+            <br><br>
+            <button onclick="speak('La lampe est sur la table')">🔊 Listen</button>
+        </div>
+
+    </div>
+
+    <div class="tip">
+        <h2>💡 Learning Tip</h2>
+        <p>
+            Learn vocabulary by imagining your own home.
+        </p>
+
+        <p>
+            🛏️ La chambre → Your bedroom
+            <br>
+            🍳 La cuisine → Your kitchen
+            <br>
+            🛋️ Le salon → Your living room
+        </p>
+
+        <p>
+            Try saying the French word every time you see the object!
+        </p>
+    </div>
+
+    <div class="quiz">
+
+        <h2>🎯 Quick Quiz</h2>
+
+        <p><strong>What does "La chambre" mean?</strong></p>
+
+        <button onclick="checkAnswer(false)">Kitchen</button>
+        <button onclick="checkAnswer(true)">Bedroom</button>
+        <button onclick="checkAnswer(false)">Garden</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <a class="back" href="a1.html">⬅️ Back to A1</a>
+
+</div>
+
+<footer>
+    🌸 Learn French with Bonjour Lab 🌸
+</footer>
+
+<script>
+
+function speak(text) {
+    var speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 0.85;
+    speech.pitch = 1;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+}
+
+function checkAnswer(correct) {
+    var result = document.getElementById("result");
+
+    if (correct) {
+        result.innerHTML = "🎉 Correct! La chambre means Bedroom.";
+    } else {
+        result.innerHTML = "❌ Try again!";
+    }
+}
+
+</script>
+
+</body>
+</html>

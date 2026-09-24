@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Greetings - Bonjour Lab</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7ff;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 25px;
+            color: #4b3f72;
+            font-size: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 5px solid #667eea;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            color: #5b4bdb;
+            font-size: 22px;
+            margin-top: 0;
+        }
+
+        .meaning {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .pronunciation {
+            color: #777;
+            font-style: italic;
+        }
+
+        .example {
+            background: #f0edff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
+        .speak-btn {
+            border: none;
+            background: #667eea;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .speak-btn:hover {
+            background: #5145cd;
+        }
+
+        .conversation {
+            background: linear-gradient(135deg, #fff1eb, #ffe4f3);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            line-height: 1.8;
+        }
+
+        .practice {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+        }
+
+        .question {
+            background: #f7f5ff;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 14px;
+        }
+
+        .answer-btn {
+            background: #ff7eb3;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .answer-btn:hover {
+            background: #e85b96;
+        }
+
+        footer {
+            text-align: center;
+            background: #2d2a4a;
+            color: white;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>👋 Greetings & Introductions </h1>
+
+    <p>Learn how to greet people, introduce yourself and have your first conversations in French.</p>
+
+</header>
+
+
+<div class="container">
+
+    <h2 class="section-title">🌸 Basic Greetings</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>1. Bonjour</h3>
+            <p class="meaning">Meaning: Hello / Good morning</p>
+            <p class="pronunciation">Pronunciation: bon-zhoor</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Bonjour, Madame !
+            </div>
+            <button class="speak-btn" onclick="speak('Bonjour')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>2. Bonsoir</h3>
+            <p class="meaning">Meaning: Good evening</p>
+            <p class="pronunciation">Pronunciation: bon-swahr</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Bonsoir, Monsieur !
+            </div>
+            <button class="speak-btn" onclick="speak('Bonsoir')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>3. Salut</h3>
+            <p class="meaning">Meaning: Hi / Bye</p>
+            <p class="pronunciation">Pronunciation: sa-loo</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Salut, ça va ?
+            </div>
+            <button class="speak-btn" onclick="speak('Salut')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>4. Au revoir</h3>
+            <p class="meaning">Meaning: Goodbye</p>
+            <p class="pronunciation">Pronunciation: oh ruh-vwar</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Au revoir, à demain !
+            </div>
+            <button class="speak-btn" onclick="speak('Au revoir')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>5. À bientôt</h3>
+            <p class="meaning">Meaning: See you soon</p>
+            <p class="pronunciation">Pronunciation: ah byan-toh</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                À bientôt !
+            </div>
+            <button class="speak-btn" onclick="speak('À bientôt')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>6. À demain</h3>
+            <p class="meaning">Meaning: See you tomorrow</p>
+            <p class="pronunciation">Pronunciation: ah duh-man</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                À demain, Marie !
+            </div>
+            <button class="speak-btn" onclick="speak('À demain')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>7. À plus tard</h3>
+            <p class="meaning">Meaning: See you later</p>
+            <p class="pronunciation">Pronunciation: ah ploo tar</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                À plus tard !
+            </div>
+            <button class="speak-btn" onclick="speak('À plus tard')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>8. À tout à l'heure</h3>
+            <p class="meaning">Meaning: See you later</p>
+            <p class="pronunciation">Pronunciation: ah too tah luhr</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                À tout à l'heure !
+            </div>
+            <button class="speak-btn" onclick="speak('À tout à l’heure')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>9. Bonne journée</h3>
+            <p class="meaning">Meaning: Have a good day</p>
+            <p class="pronunciation">Pronunciation: bun zhoor-nay</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Merci, bonne journée !
+            </div>
+            <button class="speak-btn" onclick="speak('Bonne journée')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>10. Bonne soirée</h3>
+            <p class="meaning">Meaning: Have a good evening</p>
+            <p class="pronunciation">Pronunciation: bun swah-ray</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Bonne soirée !
+            </div>
+            <button class="speak-btn" onclick="speak('Bonne soirée')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>11. Bonne nuit</h3>
+            <p class="meaning">Meaning: Good night</p>
+            <p class="pronunciation">Pronunciation: bun nwee</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Bonne nuit, à demain !
+            </div>
+            <button class="speak-btn" onclick="speak('Bonne nuit')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>12. Bienvenue</h3>
+            <p class="meaning">Meaning: Welcome</p>
+            <p class="pronunciation">Pronunciation: byan-vuh-noo</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Bienvenue à Paris !
+            </div>
+            <button class="speak-btn" onclick="speak('Bienvenue')">
+                🔊 Listen
+            </button>
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">😊 Asking How Someone Is</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>13. Ça va ?</h3>
+            <p class="meaning">Meaning: How are you?</p>
+            <p class="pronunciation">Pronunciation: sah vah</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Salut ! Ça va ?
+            </div>
+            <button class="speak-btn" onclick="speak('Ça va ?')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>14. Comment ça va ?</h3>
+            <p class="meaning">Meaning: How are you?</p>
+            <p class="pronunciation">Pronunciation: koh-mahn sah vah</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Bonjour ! Comment ça va ?
+            </div>
+            <button class="speak-btn" onclick="speak('Comment ça va ?')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>15. Comment allez-vous ?</h3>
+            <p class="meaning">Meaning: How are you? (formal)</p>
+            <p class="pronunciation">Pronunciation: koh-mahn tah-lay voo</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Bonjour Madame, comment allez-vous ?
+            </div>
+            <button class="speak-btn" onclick="speak('Comment allez-vous ?')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>16. Comment vas-tu ?</h3>
+            <p class="meaning">Meaning: How are you? (informal)</p>
+            <p class="pronunciation">Pronunciation: koh-mahn vah too</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Salut Paul, comment vas-tu ?
+            </div>
+            <button class="speak-btn" onclick="speak('Comment vas-tu ?')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>17. Ça va bien.</h3>
+            <p class="meaning">Meaning: I'm doing well.</p>
+            <p class="pronunciation">Pronunciation: sah vah byan</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Ça va bien, merci.
+            </div>
+            <button class="speak-btn" onclick="speak('Ça va bien')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>18. Très bien, merci.</h3>
+            <p class="meaning">Meaning: Very well, thank you.</p>
+            <p class="pronunciation">Pronunciation: tray byan mehr-see</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Très bien, merci. Et vous ?
+            </div>
+            <button class="speak-btn" onclick="speak('Très bien, merci')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>19. Comme ci, comme ça.</h3>
+            <p class="meaning">Meaning: So-so</p>
+            <p class="pronunciation">Pronunciation: kohm see kohm sah</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Ça va ? — Comme ci, comme ça.
+            </div>
+            <button class="speak-btn" onclick="speak('Comme ci, comme ça')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>20. Et toi ?</h3>
+            <p class="meaning">Meaning: And you? (informal)</p>
+            <p class="pronunciation">Pronunciation: ay twah</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Ça va bien. Et toi ?
+            </div>
+            <button class="speak-btn" onclick="speak('Et toi ?')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>21. Et vous ?</h3>
+            <p class="meaning">Meaning: And you? (formal)</p>
+            <p class="pronunciation">Pronunciation: ay voo</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Je vais bien. Et vous ?
+            </div>
+            <button class="speak-btn" onclick="speak('Et vous ?')">
+                🔊 Listen
+            </button>
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">🙋 Introductions</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>22. Je m'appelle...</h3>
+            <p class="meaning">Meaning: My name is...</p>
+            <p class="pronunciation">Pronunciation: zhuh mah-pel</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Je m'appelle Urvashi.
+            </div>
+            <button class="speak-btn" onclick="speak('Je m’appelle')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>23. Comment tu t'appelles ?</h3>
+            <p class="meaning">Meaning: What is your name? (informal)</p>
+            <p class="pronunciation">Pronunciation: koh-mahn too tah-pel</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Salut ! Comment tu t'appelles ?
+            </div>
+            <button class="speak-btn" onclick="speak('Comment tu t’appelles ?')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>24. Comment vous appelez-vous ?</h3>
+            <p class="meaning">Meaning: What is your name? (formal)</p>
+            <p class="pronunciation">Pronunciation: koh-mahn voo zah-play voo</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Bonjour Madame. Comment vous appelez-vous ?
+            </div>
+            <button class="speak-btn" onclick="speak('Comment vous appelez-vous ?')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>25. Je suis...</h3>
+            <p class="meaning">Meaning: I am...</p>
+            <p class="pronunciation">Pronunciation: zhuh swee</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Je suis étudiante.
+            </div>
+            <button class="speak-btn" onclick="speak('Je suis')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>26. Enchanté !</h3>
+            <p class="meaning">Meaning: Nice to meet you!</p>
+            <p class="pronunciation">Pronunciation: ahn-shahn-tay</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Bonjour, je m'appelle Paul. Enchanté !
+            </div>
+            <button class="speak-btn" onclick="speak('Enchanté')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>27. Ravi de vous rencontrer.</h3>
+            <p class="meaning">Meaning: Nice to meet you.</p>
+            <p class="pronunciation">Pronunciation: rah-vee duh voo rahn-kon-tray</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Ravi de vous rencontrer !
+            </div>
+            <button class="speak-btn" onclick="speak('Ravi de vous rencontrer')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>28. Je suis étudiant(e).</h3>
+            <p class="meaning">Meaning: I am a student.</p>
+            <p class="pronunciation">Pronunciation: zhuh swee ay-too-dee-ahn</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Je suis étudiante.
+            </div>
+            <button class="speak-btn" onclick="speak('Je suis étudiante')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>29. Je viens de...</h3>
+            <p class="meaning">Meaning: I come from...</p>
+            <p class="pronunciation">Pronunciation: zhuh vyan duh</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Je viens de Delhi.
+            </div>
+            <button class="speak-btn" onclick="speak('Je viens de Delhi')">
+                🔊 Listen
+            </button>
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">🙏 Polite Expressions</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>30. Merci</h3>
+            <p class="meaning">Meaning: Thank you</p>
+            <p class="pronunciation">Pronunciation: mehr-see</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Merci beaucoup !
+            </div>
+            <button class="speak-btn" onclick="speak('Merci')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>31. Merci beaucoup</h3>
+            <p class="meaning">Meaning: Thank you very much</p>
+            <p class="pronunciation">Pronunciation: mehr-see boh-koo</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Merci beaucoup pour votre aide.
+            </div>
+            <button class="speak-btn" onclick="speak('Merci beaucoup')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>32. De rien</h3>
+            <p class="meaning">Meaning: You're welcome</p>
+            <p class="pronunciation">Pronunciation: duh ryan</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Merci ! — De rien !
+            </div>
+            <button class="speak-btn" onclick="speak('De rien')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>33. S'il vous plaît</h3>
+            <p class="meaning">Meaning: Please</p>
+            <p class="pronunciation">Pronunciation: seel voo pleh</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Un café, s'il vous plaît.
+            </div>
+            <button class="speak-btn" onclick="speak('S’il vous plaît')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>34. S'il te plaît</h3>
+            <p class="meaning">Meaning: Please (informal)</p>
+            <p class="pronunciation">Pronunciation: seel tuh pleh</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Aide-moi, s'il te plaît.
+            </div>
+            <button class="speak-btn" onclick="speak('S’il te plaît')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>35. Excusez-moi</h3>
+            <p class="meaning">Meaning: Excuse me</p>
+            <p class="pronunciation">Pronunciation: ex-kew-zay mwah</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Excusez-moi, où est la gare ?
+            </div>
+            <button class="speak-btn" onclick="speak('Excusez-moi')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>36. Pardon</h3>
+            <p class="meaning">Meaning: Sorry / Excuse me</p>
+            <p class="pronunciation">Pronunciation: par-dohn</p>
+            <div class="example">
+                <strong>Example:</strong><br>
+                Pardon, je suis désolé.
+            </div>
+            <button class="speak-btn" onclick="speak('Pardon')">
+                🔊 Listen
+            </button>
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">💬 Mini Conversation</h2>
+
+    <div class="conversation">
+
+        <p><strong>👩 A:</strong> Bonjour ! Comment allez-vous ?</p>
+
+        <p><strong>👨 B:</strong> Bonjour ! Très bien, merci. Et vous ?</p>
+
+        <p><strong>👩 A:</strong> Très bien, merci. Je m'appelle Marie.</p>
+
+        <p><strong>👨 B:</strong> Je m'appelle Paul. Enchanté !</p>
+
+        <p><strong>👩 A:</strong> Enchantée ! À bientôt !</p>
+
+        <p><strong>👨 B:</strong> Au revoir !</p>
+
+    </div>
+
+
+    <h2 class="section-title">📝 Quick Practice</h2>
+
+    <div class="practice">
+
+        <div class="question">
+            <p><strong>1. How do you say "Hello" in French?</strong></p>
+            <button class="answer-btn"
+                onclick="alert('Bonjour 👋')">
+                Show Answer
+            </button>
+        </div>
+
+        <div class="question">
+            <p><strong>2. How do you say "Thank you very much"?</strong></p>
+            <button class="answer-btn"
+                onclick="alert('Merci beaucoup 🙏')">
+                Show Answer
+            </button>
+        </div>
+
+        <div class="question">
+            <p><strong>3. How do you say "Goodbye"?</strong></p>
+            <button class="answer-btn"
+                onclick="alert('Au revoir 👋')">
+                Show Answer
+            </button>
+        </div>
+
+        <div class="question">
+            <p><strong>4. How do you say "My name is..."?</strong></p>
+            <button class="answer-btn"
+                onclick="alert('Je m’appelle...')">
+                Show Answer
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <p>🌸 Learn French with Bonjour Lab 🌸</p>
+
+</footer>
+
+
+<script>
+
+    function speak(text) {
+
+        const speech = new SpeechSynthesisUtterance(text);
+
+        speech.lang = "fr";
+
+        speech.rate = 0.85;
+
+        window.speechSynthesis.speak(speech);
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

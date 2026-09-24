@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adjectives & Agreement | Bonjour Lab</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef7ff, #fff0f7, #fff9df);
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 0 0 35px 35px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.intro {
+    background: white;
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    color: #dd2476;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    text-align: center;
+    color: #c2185b;
+    font-size: 28px;
+    margin: 35px 0 20px;
+}
+
+.rule-box {
+    background: linear-gradient(135deg, #ffe0ef, #e4d9ff);
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.rule-box h3 {
+    color: #7b2ff7;
+    margin-bottom: 15px;
+}
+
+.big-rule {
+    font-size: 25px;
+    font-weight: bold;
+    color: #c2185b;
+    margin: 15px 0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card:nth-child(1) {
+    background: #ffdce8;
+}
+
+.card:nth-child(2) {
+    background: #dceeff;
+}
+
+.card:nth-child(3) {
+    background: #e0ffd9;
+}
+
+.card:nth-child(4) {
+    background: #fff0b8;
+}
+
+.card h3 {
+    color: #6a1b9a;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    margin: 7px 0;
+}
+
+.example {
+    background: rgba(255,255,255,0.78);
+    padding: 13px;
+    border-radius: 13px;
+    margin-top: 12px;
+}
+
+.listen-btn {
+    border: none;
+    background: #dd2476;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.listen-btn:hover {
+    background: #b91d62;
+}
+
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #dd2476;
+    color: white;
+}
+
+tr:hover {
+    background: #fff3f8;
+}
+
+.tip {
+    background: linear-gradient(135deg, #fff4a8, #ffd8e8);
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.tip h3 {
+    color: #6a1b9a;
+    margin-bottom: 12px;
+}
+
+.activity {
+    background: white;
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.question {
+    font-size: 23px;
+    color: #6a1b9a;
+    margin: 20px 0;
+}
+
+.option {
+    border: none;
+    padding: 12px 22px;
+    margin: 7px;
+    border-radius: 20px;
+    background: #e7d7ff;
+    color: #4a148c;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.option:hover {
+    transform: scale(1.05);
+    background: #d2b5ff;
+}
+
+.feedback {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+.memory {
+    background: linear-gradient(135deg, #d9f7ff, #e8d7ff);
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.memory h3 {
+    color: #6a1b9a;
+    margin-bottom: 15px;
+}
+
+.memory-item {
+    background: rgba(255,255,255,0.8);
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 6px;
+    border-radius: 15px;
+}
+
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 35px auto;
+    padding: 14px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #dd2476, #7b2ff7);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>🎯 Adjectives & Agreement</h1>
+
+    <p>
+        Learn how French adjectives change!
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+        <h2>✨ What is an Adjective?</h2>
+
+        <p>
+            An adjective describes a person, place, animal or thing.
+        </p>
+
+        <p style="margin-top:10px;">
+            For example:
+            <strong>grand</strong> = big / tall
+        </p>
+
+        <p style="margin-top:10px;">
+            In French, adjectives often change according to
+            <strong>gender and number</strong>.
+        </p>
+
+    </div>
+
+
+    <!-- BASIC RULE -->
+
+    <h2 class="section-title">
+        🧠 The Basic Rule
+    </h2>
+
+
+    <div class="rule-box">
+
+        <h3>Masculine → Feminine</h3>
+
+        <div class="big-rule">
+            grand → grande
+        </div>
+
+        <p>
+            A common way to make an adjective feminine is to add
+            <strong>-e</strong>.
+        </p>
+
+    </div>
+
+
+    <!-- EXAMPLES -->
+
+    <h2 class="section-title">
+        🌸 Masculine & Feminine
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>👦 Grand / Grande</h3>
+
+            <p>
+                <strong>Un garçon grand.</strong>
+            </p>
+
+            <p>
+                A tall boy.
+            </p>
+
+            <div class="example">
+                <strong>Une fille grande.</strong>
+                <br>
+                A tall girl.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Une fille grande')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>😊 Petit / Petite</h3>
+
+            <p>
+                <strong>Un garçon petit.</strong>
+            </p>
+
+            <p>
+                A small boy.
+            </p>
+
+            <div class="example">
+                <strong>Une fille petite.</strong>
+                <br>
+                A small girl.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Une fille petite')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>💖 Content / Contente</h3>
+
+            <p>
+                <strong>Il est content.</strong>
+            </p>
+
+            <p>
+                He is happy.
+            </p>
+
+            <div class="example">
+                <strong>Elle est contente.</strong>
+                <br>
+                She is happy.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Elle est contente')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>😴 Fatigué / Fatiguée</h3>
+
+            <p>
+                <strong>Il est fatigué.</strong>
+            </p>
+
+            <p>
+                He is tired.
+            </p>
+
+            <div class="example">
+                <strong>Elle est fatiguée.</strong>
+                <br>
+                She is tired.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Elle est fatiguée')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- COMMON ADJECTIVES -->
+
+    <h2 class="section-title">
+        🌈 Common A1 Adjectives
+    </h2>
+
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>English</th>
+            </tr>
+
+            <tr>
+                <td>grand</td>
+                <td>grande</td>
+                <td>big / tall</td>
+            </tr>
+
+            <tr>
+                <td>petit</td>
+                <td>petite</td>
+                <td>small</td>
+            </tr>
+
+            <tr>
+                <td>content</td>
+                <td>contente</td>
+                <td>happy</td>
+            </tr>
+
+            <tr>
+                <td>fatigué</td>
+                <td>fatiguée</td>
+                <td>tired</td>
+            </tr>
+
+            <tr>
+                <td>intelligent</td>
+                <td>intelligente</td>
+                <td>intelligent</td>
+            </tr>
+
+            <tr>
+                <td>gentil</td>
+                <td>gentille</td>
+                <td>kind</td>
+            </tr>
+
+            <tr>
+                <td>sportif</td>
+                <td>sportive</td>
+                <td>sporty</td>
+            </tr>
+
+            <tr>
+                <td>beau</td>
+                <td>belle</td>
+                <td>beautiful / handsome</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- PLURAL -->
+
+    <h2 class="section-title">
+        👥 Adjectives in the Plural
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>👨 Masculine Plural</h3>
+
+            <p>
+                Usually add <strong>-s</strong>.
+            </p>
+
+            <div class="example">
+                grand → grands
+            </div>
+
+            <p>
+                <strong>Les garçons sont grands.</strong>
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Les garçons sont grands')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>👩 Feminine Plural</h3>
+
+            <p>
+                Usually add <strong>-s</strong>.
+            </p>
+
+            <div class="example">
+                grande → grandes
+            </div>
+
+            <p>
+                <strong>Les filles sont grandes.</strong>
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Les filles sont grandes')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- IMPORTANT TIP -->
+
+    <div class="tip">
+
+        <h3>💡 Easy Rule to Remember</h3>
+
+        <p>
+            Masculine singular:
+            <strong>grand</strong>
+        </p>
+
+        <p style="margin-top:8px;">
+            Feminine singular:
+            <strong>grande</strong>
+        </p>
+
+        <p style="margin-top:8px;">
+            Masculine plural:
+            <strong>grands</strong>
+        </p>
+
+        <p style="margin-top:8px;">
+            Feminine plural:
+            <strong>grandes</strong>
+        </p>
+
+        <p style="margin-top:15px;">
+            ⭐ Always check whether the noun is masculine,
+            feminine, singular or plural.
+        </p>
+
+    </div>
+
+
+    <!-- MEMORY -->
+
+    <div class="memory">
+
+        <h3>🧠 Memory Trick</h3>
+
+        <div class="memory-item">
+            👦 Masculine → grand
+        </div>
+
+        <div class="memory-item">
+            👧 Feminine → grande
+        </div>
+
+        <div class="memory-item">
+            👨‍👩‍👧 Plural → usually + S
+        </div>
+
+        <p style="margin-top:18px;">
+            Think:
+            <strong>Gender + Number = Agreement</strong> 💡
+        </p>
+
+    </div>
+
+
+    <!-- ACTIVITY -->
+
+    <h2 class="section-title">
+        🎯 Choose the Correct Adjective
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Complete the sentence:
+        </p>
+
+        <div class="question">
+            Elle est ___.
+        </div>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('a')">
+
+            content
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('b')">
+
+            contente
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('c')">
+
+            contents
+
+        </button>
+
+
+        <div
+            id="feedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <h2 class="section-title">
+        🏆 Quick Quiz
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Choose the correct sentence:
+        </p>
+
+        <div class="question">
+            "The girls are tall."
+        </div>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('a')">
+
+            Les filles sont grands.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('b')">
+
+            Les filles sont grandes.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('c')">
+
+            Les filles est grandes.
+
+        </button>
+
+
+        <div
+            id="quizFeedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- BACK -->
+
+    <a
+        href="a1.html"
+        class="back-btn">
+
+        ← Back to A1 Grammar
+
+    </a>
+
+</div>
+
+
+<footer>
+
+    🌸 Bonjour Lab • Learn French step by step
+
+</footer>
+
+
+<script>
+
+function speak(text) {
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.85;
+
+    window.speechSynthesis.cancel();
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+function checkAnswer(answer) {
+
+    const feedback =
+        document.getElementById("feedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Correct! <strong>Elle est contente.</strong> is feminine.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! With <strong>elle</strong>, the adjective must agree in the feminine.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+
+function quizAnswer(answer) {
+
+    const feedback =
+        document.getElementById("quizFeedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Excellent! <strong>Les filles sont grandes.</strong> is correct.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! <strong>filles</strong> is feminine plural, so the adjective is <strong>grandes</strong>.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

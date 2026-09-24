@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Colours | Bonjour Lab</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff7ed, #f5f3ff, #ecfeff);
+    color: #222;
+}
+
+header {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+    border-radius: 0 0 30px 30px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin: 0 0 10px;
+}
+
+header p {
+    font-size: 18px;
+    margin: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    color: #7c3aed;
+    margin: 35px 0 20px;
+}
+
+.colour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.colour-card {
+    background: white;
+    border-radius: 22px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.25s;
+}
+
+.colour-card:hover {
+    transform: translateY(-7px);
+}
+
+.colour-box {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 5px solid white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.french {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+.english {
+    font-size: 17px;
+    margin: 7px 0;
+    color: #444;
+}
+
+.pronunciation {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 14px;
+}
+
+button {
+    border: none;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.info-box {
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    margin-top: 35px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    line-height: 1.7;
+}
+
+.tip {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    padding: 22px;
+    border-radius: 20px;
+    margin-top: 25px;
+}
+
+.practice {
+    background: linear-gradient(135deg, #ede9fe, #fce7f3);
+    padding: 30px;
+    border-radius: 25px;
+    margin-top: 35px;
+    text-align: center;
+}
+
+.practice input {
+    padding: 12px;
+    border: 2px solid #c4b5fd;
+    border-radius: 12px;
+    width: 220px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+#result {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎨 French Colours</h1>
+    <p>Learn the most useful colours in French!</p>
+</header>
+
+<div class="container">
+
+    <h2 class="section-title">🌈 Basic Colours</h2>
+
+    <div class="colour-grid">
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#ef4444;"></div>
+            <div class="french">rouge</div>
+            <div class="english">Red ❤️</div>
+            <div class="pronunciation">roozh</div>
+            <button onclick="speak('rouge')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#3b82f6;"></div>
+            <div class="french">bleu</div>
+            <div class="english">Blue 💙</div>
+            <div class="pronunciation">bluh</div>
+            <button onclick="speak('bleu')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#22c55e;"></div>
+            <div class="french">vert</div>
+            <div class="english">Green 💚</div>
+            <div class="pronunciation">vair</div>
+            <button onclick="speak('vert')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#facc15;"></div>
+            <div class="french">jaune</div>
+            <div class="english">Yellow 💛</div>
+            <div class="pronunciation">zhon</div>
+            <button onclick="speak('jaune')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#000;"></div>
+            <div class="french">noir</div>
+            <div class="english">Black 🖤</div>
+            <div class="pronunciation">nwahr</div>
+            <button onclick="speak('noir')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#fff; border:2px solid #ddd;"></div>
+            <div class="french">blanc</div>
+            <div class="english">White 🤍</div>
+            <div class="pronunciation">blahn</div>
+            <button onclick="speak('blanc')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#f97316;"></div>
+            <div class="french">orange</div>
+            <div class="english">Orange 🧡</div>
+            <div class="pronunciation">oh-rahnzh</div>
+            <button onclick="speak('orange')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#a855f7;"></div>
+            <div class="french">violet</div>
+            <div class="english">Purple 💜</div>
+            <div class="pronunciation">vee-oh-lay</div>
+            <button onclick="speak('violet')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#ec4899;"></div>
+            <div class="french">rose</div>
+            <div class="english">Pink 🩷</div>
+            <div class="pronunciation">rohz</div>
+            <button onclick="speak('rose')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#92400e;"></div>
+            <div class="french">marron</div>
+            <div class="english">Brown 🤎</div>
+            <div class="pronunciation">mah-rohn</div>
+            <button onclick="speak('marron')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#9ca3af;"></div>
+            <div class="french">gris</div>
+            <div class="english">Grey 🩶</div>
+            <div class="pronunciation">gree</div>
+            <button onclick="speak('gris')">🔊 Listen</button>
+        </div>
+
+        <div class="colour-card">
+            <div class="colour-box" style="background:#f5f5dc;"></div>
+            <div class="french">beige</div>
+            <div class="english">Beige</div>
+            <div class="pronunciation">bezh</div>
+            <button onclick="speak('beige')">🔊 Listen</button>
+        </div>
+
+    </div>
+
+    <div class="info-box">
+        <h2>🗣️ Use Colours in Sentences</h2>
+
+        <p><strong>J'aime le bleu.</strong> → I like blue.</p>
+
+        <p><strong>La voiture est rouge.</strong> → The car is red.</p>
+
+        <p><strong>Le sac est noir.</strong> → The bag is black.</p>
+
+        <p><strong>La fleur est rose.</strong> → The flower is pink.</p>
+
+        <p><strong>J'ai une robe blanche.</strong> → I have a white dress.</p>
+    </div>
+
+    <div class="tip">
+        <h2>💡 Learning Tip</h2>
+        <p>
+            Look around your room and name five objects in French
+            using their colours!
+        </p>
+    </div>
+
+    <div class="practice">
+        <h2>🎯 Quick Practice</h2>
+
+        <p>What does <strong>vert</strong> mean?</p>
+
+        <input type="text" id="answer" placeholder="Type your answer">
+
+        <br>
+
+        <button onclick="checkAnswer()">Check Answer</button>
+
+        <div id="result"></div>
+    </div>
+
+</div>
+
+<footer>
+    🌸 Learn French with Bonjour Lab 🌸
+</footer>
+
+<script>
+
+function speak(text) {
+    const speech = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(speech);
+}
+
+function checkAnswer() {
+    const answer = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const result = document.getElementById("result");
+
+    if (answer === "green") {
+        result.innerHTML = "🎉 Correct! Très bien!";
+    } else {
+        result.innerHTML = "💡 Try again!";
+    }
+}
+
+</script>
+
+</body>
+</html>

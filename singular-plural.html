@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Singular & Plural | Bonjour Lab</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff1f8, #e8f7ff, #fff8dc);
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+    border-radius: 0 0 35px 35px;
+}
+
+header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    color: #6a1b9a;
+    margin: 35px 0 20px;
+}
+
+.intro {
+    background: white;
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.intro strong {
+    color: #e91e63;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 22px;
+    color: #333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.13);
+}
+
+.card:nth-child(1) {
+    background: #ffd6e7;
+}
+
+.card:nth-child(2) {
+    background: #d6f0ff;
+}
+
+.card:nth-child(3) {
+    background: #dcffd9;
+}
+
+.card:nth-child(4) {
+    background: #fff0b8;
+}
+
+.card h3 {
+    font-size: 25px;
+    color: #6a1b9a;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.example {
+    background: rgba(255,255,255,0.75);
+    padding: 10px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.listen-btn {
+    margin-top: 15px;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    background: #7b2ff7;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.listen-btn:hover {
+    background: #5d20c9;
+}
+
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th, td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #7b2ff7;
+    color: white;
+}
+
+tr:hover {
+    background: #faf0ff;
+}
+
+.tip {
+    background: linear-gradient(135deg, #fff3a6, #ffd6e7);
+    padding: 25px;
+    border-radius: 22px;
+    margin-top: 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.activity {
+    background: white;
+    padding: 28px;
+    border-radius: 22px;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.question {
+    font-size: 22px;
+    margin: 20px 0;
+    color: #6a1b9a;
+}
+
+.option {
+    display: inline-block;
+    margin: 8px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 20px;
+    background: #e8d7ff;
+    color: #4a148c;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.option:hover {
+    transform: scale(1.05);
+    background: #d2b5ff;
+}
+
+#feedback {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    min-height: 25px;
+}
+
+.score-box {
+    margin-top: 25px;
+    background: #e8f7ff;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 35px auto;
+    padding: 14px 25px;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 30px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔢 Singular & Plural</h1>
+    <p>Learn how French words change from one to many!</p>
+</header>
+
+<div class="container">
+
+    <div class="intro">
+        <h2>✨ One or More?</h2>
+        <p>
+            In French, <strong>singular</strong> means one person or thing,
+            while <strong>plural</strong> means two or more.
+        </p>
+    </div>
+
+    <h2 class="section-title">📌 Basic Idea</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>👤 Singular</h3>
+            <p><strong>un livre</strong></p>
+            <p>one book</p>
+
+            <div class="example">
+                📖 <strong>Le livre</strong> est intéressant.
+                <br>
+                The book is interesting.
+            </div>
+
+            <button class="listen-btn" onclick="speak('un livre')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>👥 Plural</h3>
+            <p><strong>des livres</strong></p>
+            <p>books</p>
+
+            <div class="example">
+                📚 <strong>Les livres</strong> sont intéressants.
+                <br>
+                The books are interesting.
+            </div>
+
+            <button class="listen-btn" onclick="speak('des livres')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>👤 Singular</h3>
+            <p><strong>une maison</strong></p>
+            <p>one house</p>
+
+            <div class="example">
+                🏠 <strong>La maison</strong> est grande.
+                <br>
+                The house is big.
+            </div>
+
+            <button class="listen-btn" onclick="speak('une maison')">
+                🔊 Listen
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>👥 Plural</h3>
+            <p><strong>des maisons</strong></p>
+            <p>houses</p>
+
+            <div class="example">
+                🏠🏠 <strong>Les maisons</strong> sont grandes.
+                <br>
+                The houses are big.
+            </div>
+
+            <button class="listen-btn" onclick="speak('des maisons')">
+                🔊 Listen
+            </button>
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">📚 Common Plural Rules</h2>
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>Singular</th>
+                <th>Plural</th>
+                <th>Meaning</th>
+            </tr>
+
+            <tr>
+                <td>un livre</td>
+                <td>des livres</td>
+                <td>book → books</td>
+            </tr>
+
+            <tr>
+                <td>une table</td>
+                <td>des tables</td>
+                <td>table → tables</td>
+            </tr>
+
+            <tr>
+                <td>un ami</td>
+                <td>des amis</td>
+                <td>friend → friends</td>
+            </tr>
+
+            <tr>
+                <td>une voiture</td>
+                <td>des voitures</td>
+                <td>car → cars</td>
+            </tr>
+
+            <tr>
+                <td>un étudiant</td>
+                <td>des étudiants</td>
+                <td>student → students</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <h2 class="section-title">⭐ The Most Important Rule</h2>
+
+    <div class="tip">
+
+        <h3>💡 Usually, add “-s”</h3>
+
+        <p style="margin-top:12px;">
+            In many French nouns, the plural is formed by adding
+            <strong>-s</strong>.
+        </p>
+
+        <p style="margin-top:12px;">
+            livre → livres
+            <br>
+            table → tables
+            <br>
+            voiture → voitures
+        </p>
+
+        <p style="margin-top:15px;">
+            ⚠️ The final <strong>-s</strong> is usually not pronounced.
+        </p>
+
+    </div>
+
+
+    <h2 class="section-title">🎯 Choose the Correct Plural</h2>
+
+    <div class="activity">
+
+        <p>Which is the plural of <strong>un livre</strong>?</p>
+
+        <div class="question">
+            📖 → 📚
+        </div>
+
+        <button class="option" onclick="checkAnswer('livre')">
+            un livre
+        </button>
+
+        <button class="option" onclick="checkAnswer('livres')">
+            des livres
+        </button>
+
+        <button class="option" onclick="checkAnswer('livre2')">
+            une livre
+        </button>
+
+        <div id="feedback"></div>
+
+    </div>
+
+
+    <div class="score-box">
+
+        <h2>🏆 Your Progress</h2>
+
+        <p style="margin-top:10px;">
+            Keep practicing! You are building your French grammar step by step. 🌟
+        </p>
+
+    </div>
+
+
+    <h2 class="section-title">🧠 Quick Quiz</h2>
+
+    <div class="activity">
+
+        <p>
+            What is the plural of
+            <strong>une voiture</strong>?
+        </p>
+
+        <div style="margin-top:20px;">
+
+            <button class="option" onclick="quizAnswer('a')">
+                des voiture
+            </button>
+
+            <button class="option" onclick="quizAnswer('b')">
+                des voitures
+            </button>
+
+            <button class="option" onclick="quizAnswer('c')">
+                une voitures
+            </button>
+
+        </div>
+
+        <div id="quizFeedback"></div>
+
+    </div>
+
+
+    <a href="a1.html" class="back-btn">
+        ← Back to A1 Grammar
+    </a>
+
+</div>
+
+<footer>
+    🌸 Bonjour Lab • Learn French with confidence
+</footer>
+
+
+<script>
+
+function speak(text) {
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.85;
+
+    window.speechSynthesis.cancel();
+
+    window.speechSynthesis.speak(speech);
+}
+
+
+function checkAnswer(answer) {
+
+    const feedback = document.getElementById("feedback");
+
+    if (answer === "livres") {
+
+        feedback.innerHTML = "🎉 Correct! <strong>des livres</strong> means books.";
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML = "❌ Not quite. Try again!";
+        feedback.style.color = "crimson";
+
+    }
+}
+
+
+function quizAnswer(answer) {
+
+    const feedback = document.getElementById("quizFeedback");
+
+    if (answer === "b") {
+
+        feedback.innerHTML = "🎉 Excellent! <strong>des voitures</strong> is correct.";
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML = "❌ Try again! Remember the plural usually takes -s.";
+        feedback.style.color = "crimson";
+
+    }
+}
+
+</script>
+
+</body>
+</html>

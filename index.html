@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bonjour Lab | Learn French</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff4f8, #f2edff, #e8faff);
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Decorative circles */
+
+.decor {
+    position: fixed;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.45;
+    animation: floating 6s ease-in-out infinite;
+}
+
+.decor1 {
+    width: 180px;
+    height: 180px;
+    background: #ffc9dc;
+    top: 70px;
+    left: -70px;
+}
+
+.decor2 {
+    width: 220px;
+    height: 220px;
+    background: #d8ceff;
+    right: -90px;
+    top: 280px;
+    animation-delay: 1s;
+}
+
+.decor3 {
+    width: 140px;
+    height: 140px;
+    background: #c8f3e3;
+    bottom: 80px;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+}
+
+
+/* Navigation */
+
+nav {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+
+    background: rgba(255,255,255,0.92);
+
+    padding: 16px 24px;
+
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #6654c7;
+}
+
+.badge {
+    background: #eee9ff;
+    color: #6654c7;
+    padding: 9px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* Hero */
+
+.hero {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 65px auto 55px;
+
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+
+    gap: 45px;
+
+    align-items: center;
+}
+
+.tag {
+    display: inline-block;
+
+    background: #ffe0eb;
+    color: #d34e75;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1.05;
+
+    color: #403475;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #ff668b;
+}
+
+.hero p {
+    max-width: 620px;
+
+    font-size: 20px;
+    line-height: 1.7;
+
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+.start-button {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: white;
+
+    background: linear-gradient(135deg, #ff668b, #806ee5);
+
+    padding: 17px 32px;
+
+    border-radius: 18px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    box-shadow: 0 10px 25px rgba(128,110,229,0.3);
+
+    transition: 0.3s;
+}
+
+.start-button:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+
+/* Hero card */
+
+.hero-card {
+    background: white;
+
+    border-radius: 35px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+
+    position: relative;
+}
+
+.big-icon {
+    font-size: 95px;
+
+    margin-bottom: 15px;
+
+    animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+.hero-card h2 {
+    color: #55449d;
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+.hero-card p {
+    color: #777;
+
+    line-height: 1.6;
+}
+
+.mini {
+    position: absolute;
+
+    padding: 10px 15px;
+
+    border-radius: 14px;
+
+    font-weight: bold;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.mini1 {
+    top: 25px;
+    left: -20px;
+
+    background: #fff0b8;
+}
+
+.mini2 {
+    bottom: 30px;
+    right: -20px;
+
+    background: #d9f8ec;
+}
+
+
+/* Features */
+
+.features {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto 60px;
+}
+
+.features h2 {
+    text-align: center;
+
+    color: #403475;
+
+    font-size: 32px;
+
+    margin-bottom: 25px;
+}
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.feature {
+    padding: 30px 22px;
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-8px);
+}
+
+.feature1 {
+    background: #ffe0e9;
+}
+
+.feature2 {
+    background: #e2dcff;
+}
+
+.feature3 {
+    background: #d9f7eb;
+}
+
+.icon {
+    font-size: 45px;
+
+    margin-bottom: 12px;
+}
+
+.feature h3 {
+    color: #44377e;
+
+    margin-bottom: 10px;
+
+    font-size: 21px;
+}
+
+.feature p {
+    color: #666;
+
+    line-height: 1.5;
+}
+
+
+/* Learning levels */
+
+.learning {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto 60px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 35px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+.learning h2 {
+    text-align: center;
+
+    color: #403475;
+
+    font-size: 30px;
+
+    margin-bottom: 28px;
+}
+
+.levels {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+.level {
+    min-width: 190px;
+
+    padding: 20px 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    font-size: 19px;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+    display: block;
+}
+
+.level:hover {
+    transform: translateY(-8px) scale(1.03);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.level small {
+    display: block;
+
+    margin-top: 6px;
+
+    font-weight: normal;
+}
+
+.a1 {
+    background: #dff7e9;
+
+    color: #27754e;
+}
+
+.a2 {
+    background: #fff0c9;
+
+    color: #947020;
+}
+
+.b1 {
+    background: #e6ddff;
+
+    color: #604db4;
+}
+
+
+/* Motivation */
+
+.motivation {
+    width: 90%;
+    max-width: 850px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+}
+
+.motivation p {
+    font-size: 25px;
+
+    line-height: 1.6;
+
+    color: #6554a8;
+
+    font-style: italic;
+}
+
+.motivation span {
+    display: block;
+
+    margin-top: 12px;
+
+    color: #888;
+}
+
+
+/* Footer */
+
+footer {
+    background: #302b63;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+footer h3 {
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: #ddd;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero-card {
+        max-width: 450px;
+
+        margin: auto;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    nav {
+        padding: 13px 16px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .badge {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .big-icon {
+        font-size: 75px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="decor decor1"></div>
+<div class="decor decor2"></div>
+<div class="decor decor3"></div>
+
+
+<!-- Navigation -->
+
+<nav>
+
+    <div class="logo">
+        🌸 Bonjour Lab
+    </div>
+
+    <div class="badge">
+        ✨ Learn • Practice • Grow
+    </div>
+
+</nav>
+
+
+<!-- Hero -->
+
+<section class="hero">
+
+    <div>
+
+        <div class="tag">
+            🌟 Your French Learning Journey
+        </div>
+
+        <h1>
+            Learn French.<br>
+            <span>Speak with confidence.</span>
+        </h1>
+
+        <p>
+            Welcome to Bonjour Lab — a fun and interactive
+            place to learn French step by step, practice new
+            words, understand grammar and build confidence.
+        </p>
+
+        <a href="learn.html" class="start-button">
+            🚀 Start Learning
+        </a>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div class="mini mini1">
+            📚 Learn
+        </div>
+
+        <div class="mini mini2">
+            🎯 Practice
+        </div>
+
+        <div class="big-icon">
+            🌸
+        </div>
+
+        <h2>
+            Bonjour ! 👋
+        </h2>
+
+        <p>
+            Your colourful French learning lab
+            is ready for you.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Features -->
+
+<section class="features">
+
+    <h2>
+        ✨ What You Can Do
+    </h2>
+
+    <div class="feature-grid">
+
+        <div class="feature feature1">
+
+            <div class="icon">
+                📖
+            </div>
+
+            <h3>
+                Learn
+            </h3>
+
+            <p>
+                Explore vocabulary and grammar
+                through simple lessons.
+            </p>
+
+        </div>
+
+
+        <div class="feature feature2">
+
+            <div class="icon">
+                🔊
+            </div>
+
+            <h3>
+                Listen
+            </h3>
+
+            <p>
+                Practice pronunciation and
+                listen to French words.
+            </p>
+
+        </div>
+
+
+        <div class="feature feature3">
+
+            <div class="icon">
+                🎯
+            </div>
+
+            <h3>
+                Practice
+            </h3>
+
+            <p>
+                Test yourself with quizzes
+                and interactive activities.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Learning Path -->
+
+<section class="learning">
+
+    <h2>
+        🗺️ Choose Your Level
+    </h2>
+
+    <div class="levels">
+
+        <a href="a1.html" class="level a1">
+            🌱 A1
+            <small>Beginner</small>
+        </a>
+
+        <a href="learn.html" class="level a2">
+            🌻 A2
+            <small>Elementary</small>
+        </a>
+
+        <a href="learn.html" class="level b1">
+            🚀 B1
+            <small>Intermediate</small>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Motivation -->
+
+<section class="motivation">
+
+    <p>
+        “Every French word you learn is one step
+        closer to speaking with confidence.”
+    </p>
+
+    <span>
+        🌸 Keep learning. Keep growing.
+    </span>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+
+    <h3>
+        🌸 Bonjour Lab
+    </h3>
+
+    <p>
+        Learn French • Practice French • Enjoy French
+    </p>
+
+</footer>
+
+
+</body>
+</html>

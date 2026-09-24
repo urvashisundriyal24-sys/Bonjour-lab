@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aller & Faire | Bonjour Lab</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef7ff, #fff0f7, #fff9df);
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    color: white;
+    text-align: center;
+    padding: 38px 20px;
+    border-radius: 0 0 35px 35px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.intro {
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    color: #ee0979;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    text-align: center;
+    color: #c2185b;
+    font-size: 28px;
+    margin: 35px 0 20px;
+}
+
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    color: white;
+}
+
+.aller-table th {
+    background: #ff6a00;
+}
+
+.faire-table th {
+    background: #7b2ff7;
+}
+
+tr:hover {
+    background: #fff5fb;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card:nth-child(1) {
+    background: #ffe0cc;
+}
+
+.card:nth-child(2) {
+    background: #e4d9ff;
+}
+
+.card:nth-child(3) {
+    background: #d9f7ff;
+}
+
+.card:nth-child(4) {
+    background: #fff0b8;
+}
+
+.card h3 {
+    color: #6a1b9a;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    margin: 7px 0;
+}
+
+.example {
+    background: rgba(255,255,255,0.75);
+    padding: 12px;
+    border-radius: 13px;
+    margin-top: 12px;
+}
+
+.listen-btn {
+    border: none;
+    background: #ee0979;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.listen-btn:hover {
+    background: #c2185b;
+}
+
+.tip {
+    background: linear-gradient(135deg, #fff4a8, #ffd8e8);
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.tip h3 {
+    color: #6a1b9a;
+    margin-bottom: 12px;
+}
+
+.activity {
+    background: white;
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.question {
+    font-size: 23px;
+    color: #6a1b9a;
+    margin: 20px 0;
+}
+
+.option {
+    border: none;
+    padding: 12px 22px;
+    margin: 7px;
+    border-radius: 20px;
+    background: #eadcff;
+    color: #4a148c;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.option:hover {
+    transform: scale(1.05);
+    background: #d2b5ff;
+}
+
+.feedback {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+.memory {
+    background: linear-gradient(135deg, #d9f7ff, #e8d7ff);
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.memory h3 {
+    color: #6a1b9a;
+    margin-bottom: 15px;
+}
+
+.memory-item {
+    background: rgba(255,255,255,0.8);
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 6px;
+    border-radius: 15px;
+}
+
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 35px auto;
+    padding: 14px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ee0979, #7b2ff7);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>🚶 Aller & Faire</h1>
+
+    <p>
+        Learn two very useful French verbs!
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+        <h2>✨ Meet Aller & Faire</h2>
+
+        <p>
+            <strong>Aller</strong> means <strong>to go</strong>.
+        </p>
+
+        <p style="margin-top:8px;">
+            <strong>Faire</strong> means <strong>to do / to make</strong>.
+        </p>
+
+        <p style="margin-top:12px;">
+            Both verbs are very common in everyday French.
+        </p>
+
+    </div>
+
+
+    <!-- ALLER -->
+
+    <h2 class="section-title">
+        🧡 ALLER — To Go
+    </h2>
+
+
+    <div class="table-box">
+
+        <table class="aller-table">
+
+            <tr>
+                <th>Subject</th>
+                <th>Aller</th>
+                <th>English</th>
+            </tr>
+
+            <tr>
+                <td>Je</td>
+                <td><strong>je vais</strong></td>
+                <td>I go / I am going</td>
+            </tr>
+
+            <tr>
+                <td>Tu</td>
+                <td><strong>tu vas</strong></td>
+                <td>you go</td>
+            </tr>
+
+            <tr>
+                <td>Il</td>
+                <td><strong>il va</strong></td>
+                <td>he goes</td>
+            </tr>
+
+            <tr>
+                <td>Elle</td>
+                <td><strong>elle va</strong></td>
+                <td>she goes</td>
+            </tr>
+
+            <tr>
+                <td>Nous</td>
+                <td><strong>nous allons</strong></td>
+                <td>we go</td>
+            </tr>
+
+            <tr>
+                <td>Vous</td>
+                <td><strong>vous allez</strong></td>
+                <td>you go</td>
+            </tr>
+
+            <tr>
+                <td>Ils</td>
+                <td><strong>ils vont</strong></td>
+                <td>they go</td>
+            </tr>
+
+            <tr>
+                <td>Elles</td>
+                <td><strong>elles vont</strong></td>
+                <td>they go</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- ALLER EXAMPLES -->
+
+    <h2 class="section-title">
+        🌟 Aller Examples
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>🏫 Je vais...</h3>
+
+            <p>
+                <strong>Je vais à l'école.</strong>
+            </p>
+
+            <p>
+                I go to school.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je vais à l école')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🏠 Tu vas...</h3>
+
+            <p>
+                <strong>Tu vas à la maison.</strong>
+            </p>
+
+            <p>
+                You go home.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Tu vas à la maison')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🛍️ Elle va...</h3>
+
+            <p>
+                <strong>Elle va au magasin.</strong>
+            </p>
+
+            <p>
+                She goes to the shop.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Elle va au magasin')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🌳 Nous allons...</h3>
+
+            <p>
+                <strong>Nous allons au parc.</strong>
+            </p>
+
+            <p>
+                We go to the park.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Nous allons au parc')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FAIRE -->
+
+    <h2 class="section-title">
+        💜 FAIRE — To Do / To Make
+    </h2>
+
+
+    <div class="table-box">
+
+        <table class="faire-table">
+
+            <tr>
+                <th>Subject</th>
+                <th>Faire</th>
+                <th>English</th>
+            </tr>
+
+            <tr>
+                <td>Je</td>
+                <td><strong>je fais</strong></td>
+                <td>I do / I make</td>
+            </tr>
+
+            <tr>
+                <td>Tu</td>
+                <td><strong>tu fais</strong></td>
+                <td>you do / make</td>
+            </tr>
+
+            <tr>
+                <td>Il</td>
+                <td><strong>il fait</strong></td>
+                <td>he does / makes</td>
+            </tr>
+
+            <tr>
+                <td>Elle</td>
+                <td><strong>elle fait</strong></td>
+                <td>she does / makes</td>
+            </tr>
+
+            <tr>
+                <td>Nous</td>
+                <td><strong>nous faisons</strong></td>
+                <td>we do / make</td>
+            </tr>
+
+            <tr>
+                <td>Vous</td>
+                <td><strong>vous faites</strong></td>
+                <td>you do / make</td>
+            </tr>
+
+            <tr>
+                <td>Ils</td>
+                <td><strong>ils font</strong></td>
+                <td>they do / make</td>
+            </tr>
+
+            <tr>
+                <td>Elles</td>
+                <td><strong>elles font</strong></td>
+                <td>they do / make</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- FAIRE EXAMPLES -->
+
+    <h2 class="section-title">
+        🌟 Faire Examples
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>📚 Je fais...</h3>
+
+            <p>
+                <strong>Je fais mes devoirs.</strong>
+            </p>
+
+            <p>
+                I do my homework.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je fais mes devoirs')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>⚽ Tu fais...</h3>
+
+            <p>
+                <strong>Tu fais du sport.</strong>
+            </p>
+
+            <p>
+                You do sports.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Tu fais du sport')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>☕ Elle fait...</h3>
+
+            <p>
+                <strong>Elle fait du café.</strong>
+            </p>
+
+            <p>
+                She makes coffee.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Elle fait du café')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎨 Nous faisons...</h3>
+
+            <p>
+                <strong>Nous faisons un dessin.</strong>
+            </p>
+
+            <p>
+                We make a drawing.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Nous faisons un dessin')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- USEFUL EXPRESSIONS -->
+
+    <h2 class="section-title">
+        ⭐ Useful Expressions
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>🌤️ Weather</h3>
+
+            <p>
+                <strong>Il fait chaud.</strong>
+            </p>
+
+            <p>
+                It is hot.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Il fait chaud')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>❄️ Weather</h3>
+
+            <p>
+                <strong>Il fait froid.</strong>
+            </p>
+
+            <p>
+                It is cold.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Il fait froid')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🏃 Activity</h3>
+
+            <p>
+                <strong>Je fais du sport.</strong>
+            </p>
+
+            <p>
+                I do sports.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je fais du sport')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🚶 Movement</h3>
+
+            <p>
+                <strong>Je vais au travail.</strong>
+            </p>
+
+            <p>
+                I go to work.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je vais au travail')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MEMORY -->
+
+    <div class="memory">
+
+        <h3>🧠 Easy Memory Trick</h3>
+
+        <div class="memory-item">
+            🧡 Aller = To go
+        </div>
+
+        <div class="memory-item">
+            💜 Faire = To do / To make
+        </div>
+
+        <p style="margin-top:18px;">
+            <strong>Je vais</strong> = I go
+        </p>
+
+        <p style="margin-top:8px;">
+            <strong>Je fais</strong> = I do / I make
+        </p>
+
+    </div>
+
+
+    <!-- ACTIVITY -->
+
+    <h2 class="section-title">
+        🎯 Choose the Correct Verb
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Which sentence means:
+        </p>
+
+        <div class="question">
+            "I go to school."
+        </div>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('a')">
+
+            Je fais à l'école.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('b')">
+
+            Je vais à l'école.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('c')">
+
+            Je suis à l'école.
+
+        </button>
+
+
+        <div
+            id="feedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <h2 class="section-title">
+        🏆 Quick Quiz
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Complete the sentence:
+        </p>
+
+        <div class="question">
+            Je ___ mes devoirs.
+        </div>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('a')">
+
+            vais
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('b')">
+
+            fais
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('c')">
+
+            suis
+
+        </button>
+
+
+        <div
+            id="quizFeedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <a
+        href="a1.html"
+        class="back-btn">
+
+        ← Back to A1 Grammar
+
+    </a>
+
+</div>
+
+
+<footer>
+
+    🌸 Bonjour Lab • Learn French step by step
+
+</footer>
+
+
+<script>
+
+function speak(text) {
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.85;
+
+    window.speechSynthesis.cancel();
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+function checkAnswer(answer) {
+
+    const feedback =
+        document.getElementById("feedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Correct! <strong>Je vais à l'école.</strong> means I go to school.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! Remember: <strong>aller = to go</strong>.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+
+function quizAnswer(answer) {
+
+    const feedback =
+        document.getElementById("quizFeedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Excellent! <strong>Je fais mes devoirs.</strong> is correct.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! Remember: <strong>faire = to do / to make</strong>.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

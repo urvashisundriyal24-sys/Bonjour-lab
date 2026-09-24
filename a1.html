@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A1 French | Bonjour Lab</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #fff7f0, #f4f0ff);
+        color: #333;
+    }
+
+    header {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        color: white;
+        text-align: center;
+        padding: 45px 20px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 42px;
+    }
+
+    header p {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 35px auto;
+    }
+
+    .section {
+        background: white;
+        border-radius: 22px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .section h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-top: 0;
+        color: #5b4bc4;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 25px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+    }
+
+    .topic {
+        text-decoration: none;
+    }
+
+    .topic button {
+        width: 100%;
+        min-height: 70px;
+        border: none;
+        border-radius: 16px;
+        padding: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+
+    .topic button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+
+    /* Vocabulary */
+
+    .vocabulary .topic:nth-child(1) button {
+        background: #ffe0e6;
+    }
+
+    .vocabulary .topic:nth-child(2) button {
+        background: #fff0c7;
+    }
+
+    .vocabulary .topic:nth-child(3) button {
+        background: #dff5ff;
+    }
+
+    .vocabulary .topic:nth-child(4) button {
+        background: #e4f7df;
+    }
+
+    .vocabulary .topic:nth-child(5) button {
+        background: #ffe8cc;
+    }
+
+    .vocabulary .topic:nth-child(6) button {
+        background: #e9ddff;
+    }
+
+    /* Grammar */
+
+    .grammar .topic:nth-child(1) button {
+        background: #dce8ff;
+    }
+
+    .grammar .topic:nth-child(2) button {
+        background: #ffe0f0;
+    }
+
+    .grammar .topic:nth-child(3) button {
+        background: #e1f7e7;
+    }
+
+    .grammar .topic:nth-child(4) button {
+        background: #fff0cc;
+    }
+
+    .grammar .topic:nth-child(5) button {
+        background: #f0e1ff;
+    }
+
+    .grammar .topic:nth-child(6) button {
+        background: #dff5ff;
+    }
+
+    .grammar .topic:nth-child(7) button {
+        background: #ffe5d1;
+    }
+
+    .grammar .topic:nth-child(8) button {
+        background: #e5f0ff;
+    }
+
+    .grammar .topic:nth-child(9) button {
+        background: #e5f7df;
+    }
+
+    .grammar .topic:nth-child(10) button {
+        background: #ffe1e1;
+    }
+
+    .back {
+        display: block;
+        width: fit-content;
+        margin: 25px auto;
+        padding: 13px 22px;
+        background: #6c5ce7;
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    .back:hover {
+        background: #5848c2;
+        transform: translateY(-2px);
+    }
+
+    footer {
+        text-align: center;
+        padding: 25px;
+        background: #302b63;
+        color: white;
+        margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+        header h1 {
+            font-size: 32px;
+        }
+
+        .section {
+            padding: 20px;
+        }
+
+        .section h2 {
+            font-size: 25px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌱 A1 French</h1>
+    <p>Build your French foundation step by step</p>
+</header>
+
+<div class="container">
+
+    <!-- VOCABULARY -->
+
+    <div class="section">
+
+        <h2>🗣️ Vocabulary</h2>
+
+        <p class="subtitle">
+            Learn essential French words for everyday situations.
+        </p>
+
+        <div class="grid vocabulary">
+
+            <a class="topic" href="greetings.html">
+                <button>👋 Greetings & Introductions</button>
+            </a>
+
+            <a class="topic" href="numbers.html">
+                <button>🔢 Numbers</button>
+            </a>
+
+            <a class="topic" href="colours.html">
+                <button>🎨 Colours</button>
+            </a>
+
+            <a class="topic" href="family.html">
+                <button>👨‍👩‍👧 Family</button>
+            </a>
+
+            <a class="topic" href="food.html">
+                <button>🍎 Food & Drinks</button>
+            </a>
+
+            <a class="topic" href="house.html">
+                <button>🏠 House & Furniture</button>
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- GRAMMAR -->
+
+    <div class="section">
+
+        <h2>📚 Grammar</h2>
+
+        <p class="subtitle">
+            Learn the essential grammar needed to build simple French sentences.
+        </p>
+
+        <div class="grid grammar">
+
+            <a class="topic" href="pronouns.html">
+                <button>👤 Subject Pronouns</button>
+            </a>
+
+            <a class="topic" href="articles.html">
+                <button>📚 Articles</button>
+            </a>
+
+            <a class="topic" href="gender.html">
+                <button>⚖️ Masculine & Feminine</button>
+            </a>
+
+            <a class="topic" href="singular-plural.html">
+                <button>🔢 Singular & Plural</button>
+            </a>
+
+            <a class="topic" href="negation.html">
+                <button>🚫 Negation</button>
+            </a>
+
+            <a class="topic" href="questions.html">
+                <button>❓ Asking Questions</button>
+            </a>
+
+            <a class="topic" href="etre-avoir.html">
+                <button>⭐ Être & Avoir</button>
+            </a>
+
+            <a class="topic" href="aller-faire.html">
+                <button>🚶 Aller & Faire</button>
+            </a>
+
+            <a class="topic" href="er-verbs.html">
+                <button>✏️ Regular -ER Verbs</button>
+            </a>
+
+            <a class="topic" href="adjectives.html">
+                <button>🎯 Adjectives & Agreement</button>
+            </a>
+
+        </div>
+    </div>
+
+
+    <a class="back" href="learn.html">
+        ⬅️ Back to Levels
+    </a>
+
+</div>
+
+<footer>
+    🌸 Learn French with Bonjour Lab 🌸
+</footer>
+
+</body>
+</html>

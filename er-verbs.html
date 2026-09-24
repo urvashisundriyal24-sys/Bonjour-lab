@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Regular -ER Verbs | Bonjour Lab</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef7ff, #fff0f7, #fff9df);
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 0 0 35px 35px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.intro {
+    background: white;
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    color: #7b2ff7;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    text-align: center;
+    color: #6a1b9a;
+    font-size: 28px;
+    margin: 35px 0 20px;
+}
+
+.rule-box {
+    background: linear-gradient(135deg, #ffe0ef, #e4d9ff);
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.rule-box .big {
+    font-size: 28px;
+    font-weight: bold;
+    color: #c2185b;
+    margin: 15px 0;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.step {
+    background: white;
+    padding: 22px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 7px 20px rgba(0,0,0,0.07);
+}
+
+.step span {
+    font-size: 32px;
+}
+
+.step h3 {
+    margin: 10px 0;
+    color: #7b2ff7;
+}
+
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #7b2ff7;
+    color: white;
+}
+
+tr:hover {
+    background: #faf0ff;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card:nth-child(1) {
+    background: #ffdce8;
+}
+
+.card:nth-child(2) {
+    background: #dceeff;
+}
+
+.card:nth-child(3) {
+    background: #e0ffd9;
+}
+
+.card:nth-child(4) {
+    background: #fff0b8;
+}
+
+.card h3 {
+    color: #6a1b9a;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    margin: 7px 0;
+}
+
+.example {
+    background: rgba(255,255,255,0.75);
+    padding: 12px;
+    border-radius: 13px;
+    margin-top: 12px;
+}
+
+.listen-btn {
+    border: none;
+    background: #7b2ff7;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.listen-btn:hover {
+    background: #5d20c9;
+}
+
+.tip {
+    background: linear-gradient(135deg, #fff4a8, #ffd8e8);
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.tip h3 {
+    color: #6a1b9a;
+    margin-bottom: 12px;
+}
+
+.activity {
+    background: white;
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.question {
+    font-size: 23px;
+    color: #6a1b9a;
+    margin: 20px 0;
+}
+
+.option {
+    border: none;
+    padding: 12px 22px;
+    margin: 7px;
+    border-radius: 20px;
+    background: #e7d7ff;
+    color: #4a148c;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.option:hover {
+    transform: scale(1.05);
+    background: #d2b5ff;
+}
+
+.feedback {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+.memory {
+    background: linear-gradient(135deg, #d9f7ff, #e8d7ff);
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.memory h3 {
+    color: #6a1b9a;
+    margin-bottom: 15px;
+}
+
+.memory-item {
+    background: rgba(255,255,255,0.8);
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 6px;
+    border-radius: 15px;
+}
+
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 35px auto;
+    padding: 14px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>✏️ Regular -ER Verbs</h1>
+
+    <p>
+        Learn the easy pattern behind many French verbs!
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+        <h2>✨ What are -ER Verbs?</h2>
+
+        <p>
+            Many French verbs end in <strong>-er</strong>.
+        </p>
+
+        <p style="margin-top:10px;">
+            The good news? Most regular -ER verbs follow the same pattern!
+        </p>
+
+        <p style="margin-top:10px;">
+            Once you learn the pattern, you can conjugate many verbs.
+        </p>
+
+    </div>
+
+
+    <!-- RULE -->
+
+    <h2 class="section-title">
+        🧠 The Easy Rule
+    </h2>
+
+
+    <div class="rule-box">
+
+        <p>
+            Take the infinitive verb and remove
+            <strong>-er</strong>.
+        </p>
+
+        <div class="big">
+            parler → parl
+        </div>
+
+        <p>
+            Then add the correct ending.
+        </p>
+
+    </div>
+
+
+    <!-- STEPS -->
+
+    <h2 class="section-title">
+        🔢 Three Simple Steps
+    </h2>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <span>1️⃣</span>
+
+            <h3>Find the verb</h3>
+
+            <p>
+                Example: <strong>parler</strong>
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span>2️⃣</span>
+
+            <h3>Remove -er</h3>
+
+            <p>
+                parler → <strong>parl</strong>
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span>3️⃣</span>
+
+            <h3>Add an ending</h3>
+
+            <p>
+                parl + e = <strong>parle</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONJUGATION -->
+
+    <h2 class="section-title">
+        📚 Parler — To Speak
+    </h2>
+
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>Subject</th>
+                <th>Ending</th>
+                <th>Conjugation</th>
+                <th>English</th>
+            </tr>
+
+            <tr>
+                <td>Je</td>
+                <td>-e</td>
+                <td><strong>je parle</strong></td>
+                <td>I speak</td>
+            </tr>
+
+            <tr>
+                <td>Tu</td>
+                <td>-es</td>
+                <td><strong>tu parles</strong></td>
+                <td>you speak</td>
+            </tr>
+
+            <tr>
+                <td>Il / Elle</td>
+                <td>-e</td>
+                <td><strong>il parle / elle parle</strong></td>
+                <td>he / she speaks</td>
+            </tr>
+
+            <tr>
+                <td>Nous</td>
+                <td>-ons</td>
+                <td><strong>nous parlons</strong></td>
+                <td>we speak</td>
+            </tr>
+
+            <tr>
+                <td>Vous</td>
+                <td>-ez</td>
+                <td><strong>vous parlez</strong></td>
+                <td>you speak</td>
+            </tr>
+
+            <tr>
+                <td>Ils / Elles</td>
+                <td>-ent</td>
+                <td><strong>ils parlent / elles parlent</strong></td>
+                <td>they speak</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- ENDINGS -->
+
+    <h2 class="section-title">
+        ⭐ Remember the Endings
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>👤 Je</h3>
+
+            <p>
+                <strong>-e</strong>
+            </p>
+
+            <div class="example">
+                parl<strong>e</strong>
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je parle')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>👉 Tu</h3>
+
+            <p>
+                <strong>-es</strong>
+            </p>
+
+            <div class="example">
+                parl<strong>es</strong>
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Tu parles')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>👥 Nous</h3>
+
+            <p>
+                <strong>-ons</strong>
+            </p>
+
+            <div class="example">
+                parl<strong>ons</strong>
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Nous parlons')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🙋 Vous</h3>
+
+            <p>
+                <strong>-ez</strong>
+            </p>
+
+            <div class="example">
+                parl<strong>ez</strong>
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Vous parlez')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- OTHER VERBS -->
+
+    <h2 class="section-title">
+        🌈 More Regular -ER Verbs
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>❤️ Aimer</h3>
+
+            <p>
+                To like / to love
+            </p>
+
+            <div class="example">
+                J'aime le café.
+                <br>
+                I like coffee.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('J aime le café')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎵 Chanter</h3>
+
+            <p>
+                To sing
+            </p>
+
+            <div class="example">
+                Je chante.
+                <br>
+                I sing.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je chante')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>💃 Danser</h3>
+
+            <p>
+                To dance
+            </p>
+
+            <div class="example">
+                Nous dansons.
+                <br>
+                We dance.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Nous dansons')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>📖 Étudier</h3>
+
+            <p>
+                To study
+            </p>
+
+            <div class="example">
+                J'étudie.
+                <br>
+                I study.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('J étudie')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>👂 Écouter</h3>
+
+            <p>
+                To listen
+            </p>
+
+            <div class="example">
+                J'écoute.
+                <br>
+                I listen.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('J écoute')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>👀 Regarder</h3>
+
+            <p>
+                To watch / look at
+            </p>
+
+            <div class="example">
+                Je regarde la télévision.
+                <br>
+                I watch television.
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je regarde la télévision')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- IMPORTANT -->
+
+    <div class="tip">
+
+        <h3>💡 Important Tip</h3>
+
+        <p>
+            In regular -ER verbs, the endings are usually:
+        </p>
+
+        <p style="font-size:22px; margin-top:15px;">
+            <strong>-e • -es • -e • -ons • -ez • -ent</strong>
+        </p>
+
+        <p style="margin-top:15px;">
+            The final <strong>-ent</strong> of
+            <strong>ils / elles</strong> is normally silent.
+        </p>
+
+    </div>
+
+
+    <!-- MEMORY -->
+
+    <div class="memory">
+
+        <h3>🧠 Memory Trick</h3>
+
+        <div class="memory-item">
+            👤 Je → E
+        </div>
+
+        <div class="memory-item">
+            👉 Tu → ES
+        </div>
+
+        <div class="memory-item">
+            👥 Nous → ONS
+        </div>
+
+        <div class="memory-item">
+            🙋 Vous → EZ
+        </div>
+
+        <div class="memory-item">
+            👨‍👩‍👧 Ils/Elles → ENT
+        </div>
+
+    </div>
+
+
+    <!-- ACTIVITY -->
+
+    <h2 class="section-title">
+        🎯 Practice
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Choose the correct form:
+        </p>
+
+        <div class="question">
+            Je ___ français.
+        </div>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('a')">
+
+            parle
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('b')">
+
+            parles
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('c')">
+
+            parlons
+
+        </button>
+
+
+        <div
+            id="feedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <h2 class="section-title">
+        🏆 Quick Quiz
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Complete the sentence:
+        </p>
+
+        <div class="question">
+            Nous ___ français.
+        </div>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('a')">
+
+            parle
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('b')">
+
+            parlons
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('c')">
+
+            parlez
+
+        </button>
+
+
+        <div
+            id="quizFeedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- BACK -->
+
+    <a
+        href="a1.html"
+        class="back-btn">
+
+        ← Back to A1 Grammar
+
+    </a>
+
+</div>
+
+
+<footer>
+
+    🌸 Bonjour Lab • Learn French step by step
+
+</footer>
+
+
+<script>
+
+function speak(text) {
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.85;
+
+    window.speechSynthesis.cancel();
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+function checkAnswer(answer) {
+
+    const feedback =
+        document.getElementById("feedback");
+
+
+    if (answer === "a") {
+
+        feedback.innerHTML =
+            "🎉 Correct! <strong>Je parle</strong> is the correct form.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! With <strong>Je</strong>, regular -ER verbs usually end in <strong>-e</strong>.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+
+function quizAnswer(answer) {
+
+    const feedback =
+        document.getElementById("quizFeedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Excellent! <strong>Nous parlons</strong> is correct.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! With <strong>Nous</strong>, the ending is <strong>-ons</strong>.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Être & Avoir | Bonjour Lab</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef7ff, #fff0f7, #fff9df);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #00b4db, #7b2ff7);
+    color: white;
+    text-align: center;
+    padding: 38px 20px;
+    border-radius: 0 0 35px 35px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* MAIN */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* INTRO */
+
+.intro {
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    color: #7b2ff7;
+    margin-bottom: 12px;
+}
+
+/* SECTION TITLE */
+
+.section-title {
+    text-align: center;
+    color: #6a1b9a;
+    font-size: 28px;
+    margin: 35px 0 20px;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card:nth-child(1) {
+    background: #ffd9e6;
+}
+
+.card:nth-child(2) {
+    background: #dceeff;
+}
+
+.card:nth-child(3) {
+    background: #e0ffd9;
+}
+
+.card:nth-child(4) {
+    background: #fff0b8;
+}
+
+.card h3 {
+    color: #6a1b9a;
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    margin: 7px 0;
+}
+
+.example {
+    background: rgba(255,255,255,0.75);
+    padding: 12px;
+    border-radius: 13px;
+    margin-top: 12px;
+}
+
+.listen-btn {
+    border: none;
+    background: #7b2ff7;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.listen-btn:hover {
+    background: #5d20c9;
+}
+
+/* CONJUGATION TABLE */
+
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #7b2ff7;
+    color: white;
+}
+
+tr:hover {
+    background: #faf0ff;
+}
+
+/* SPECIAL TABLES */
+
+.etre-table th {
+    background: #ff4f81;
+}
+
+.avoir-table th {
+    background: #00a6d6;
+}
+
+/* TIP */
+
+.tip {
+    background: linear-gradient(135deg, #fff4a8, #ffd8e8);
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.tip h3 {
+    color: #6a1b9a;
+    margin-bottom: 12px;
+}
+
+/* ACTIVITY */
+
+.activity {
+    background: white;
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.question {
+    font-size: 23px;
+    color: #6a1b9a;
+    margin: 20px 0;
+}
+
+.option {
+    border: none;
+    padding: 12px 22px;
+    margin: 7px;
+    border-radius: 20px;
+    background: #e7d7ff;
+    color: #4a148c;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.option:hover {
+    transform: scale(1.05);
+    background: #d2b5ff;
+}
+
+.feedback {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+/* MEMORY BOX */
+
+.memory {
+    background: linear-gradient(135deg, #d9f7ff, #e8d7ff);
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.memory h3 {
+    color: #6a1b9a;
+    margin-bottom: 15px;
+}
+
+.memory-item {
+    background: rgba(255,255,255,0.8);
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 6px;
+    border-radius: 15px;
+}
+
+/* SCORE */
+
+.score-box {
+    background: #e8f7ff;
+    padding: 22px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 35px auto;
+    padding: 14px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>⭐ Être & Avoir</h1>
+
+    <p>
+        Learn two of the most important French verbs!
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+        <h2>✨ Meet Être & Avoir</h2>
+
+        <p>
+            <strong>Être</strong> means <strong>to be</strong>.
+        </p>
+
+        <p style="margin-top:8px;">
+            <strong>Avoir</strong> means <strong>to have</strong>.
+        </p>
+
+        <p style="margin-top:12px;">
+            These two verbs are extremely important in French
+            and you will use them again and again!
+        </p>
+
+    </div>
+
+
+    <!-- ÊTRE -->
+
+    <h2 class="section-title">
+        💜 ÊTRE — To Be
+    </h2>
+
+
+    <div class="table-box">
+
+        <table class="etre-table">
+
+            <tr>
+                <th>Subject</th>
+                <th>Être</th>
+                <th>English</th>
+            </tr>
+
+            <tr>
+                <td>Je</td>
+                <td><strong>je suis</strong></td>
+                <td>I am</td>
+            </tr>
+
+            <tr>
+                <td>Tu</td>
+                <td><strong>tu es</strong></td>
+                <td>you are</td>
+            </tr>
+
+            <tr>
+                <td>Il</td>
+                <td><strong>il est</strong></td>
+                <td>he is</td>
+            </tr>
+
+            <tr>
+                <td>Elle</td>
+                <td><strong>elle est</strong></td>
+                <td>she is</td>
+            </tr>
+
+            <tr>
+                <td>Nous</td>
+                <td><strong>nous sommes</strong></td>
+                <td>we are</td>
+            </tr>
+
+            <tr>
+                <td>Vous</td>
+                <td><strong>vous êtes</strong></td>
+                <td>you are</td>
+            </tr>
+
+            <tr>
+                <td>Ils</td>
+                <td><strong>ils sont</strong></td>
+                <td>they are</td>
+            </tr>
+
+            <tr>
+                <td>Elles</td>
+                <td><strong>elles sont</strong></td>
+                <td>they are</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- ÊTRE EXAMPLES -->
+
+    <h2 class="section-title">
+        🌟 Être Examples
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>👋 Je suis...</h3>
+
+            <p>
+                <strong>Je suis étudiant.</strong>
+            </p>
+
+            <p>
+                I am a student.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Je suis étudiant')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>😊 Tu es...</h3>
+
+            <p>
+                <strong>Tu es gentil.</strong>
+            </p>
+
+            <p>
+                You are kind.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Tu es gentil')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🏠 Elle est...</h3>
+
+            <p>
+                <strong>Elle est à la maison.</strong>
+            </p>
+
+            <p>
+                She is at home.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Elle est à la maison')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>👥 Nous sommes...</h3>
+
+            <p>
+                <strong>Nous sommes amis.</strong>
+            </p>
+
+            <p>
+                We are friends.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Nous sommes amis')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- AVOIR -->
+
+    <h2 class="section-title">
+        💙 AVOIR — To Have
+    </h2>
+
+
+    <div class="table-box">
+
+        <table class="avoir-table">
+
+            <tr>
+                <th>Subject</th>
+                <th>Avoir</th>
+                <th>English</th>
+            </tr>
+
+            <tr>
+                <td>Je</td>
+                <td><strong>j'ai</strong></td>
+                <td>I have</td>
+            </tr>
+
+            <tr>
+                <td>Tu</td>
+                <td><strong>tu as</strong></td>
+                <td>you have</td>
+            </tr>
+
+            <tr>
+                <td>Il</td>
+                <td><strong>il a</strong></td>
+                <td>he has</td>
+            </tr>
+
+            <tr>
+                <td>Elle</td>
+                <td><strong>elle a</strong></td>
+                <td>she has</td>
+            </tr>
+
+            <tr>
+                <td>Nous</td>
+                <td><strong>nous avons</strong></td>
+                <td>we have</td>
+            </tr>
+
+            <tr>
+                <td>Vous</td>
+                <td><strong>vous avez</strong></td>
+                <td>you have</td>
+            </tr>
+
+            <tr>
+                <td>Ils</td>
+                <td><strong>ils ont</strong></td>
+                <td>they have</td>
+            </tr>
+
+            <tr>
+                <td>Elles</td>
+                <td><strong>elles ont</strong></td>
+                <td>they have</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- AVOIR EXAMPLES -->
+
+    <h2 class="section-title">
+        🌟 Avoir Examples
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>📚 J'ai...</h3>
+
+            <p>
+                <strong>J'ai un livre.</strong>
+            </p>
+
+            <p>
+                I have a book.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('J ai un livre')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎒 Tu as...</h3>
+
+            <p>
+                <strong>Tu as un sac.</strong>
+            </p>
+
+            <p>
+                You have a bag.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Tu as un sac')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🐱 Elle a...</h3>
+
+            <p>
+                <strong>Elle a un chat.</strong>
+            </p>
+
+            <p>
+                She has a cat.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Elle a un chat')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎁 Nous avons...</h3>
+
+            <p>
+                <strong>Nous avons un cadeau.</strong>
+            </p>
+
+            <p>
+                We have a gift.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Nous avons un cadeau')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- IMPORTANT EXPRESSIONS -->
+
+    <h2 class="section-title">
+        💡 Important Expressions with Avoir
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>🎂 Age</h3>
+
+            <p>
+                French uses <strong>avoir</strong> to talk about age.
+            </p>
+
+            <div class="example">
+
+                <strong>J'ai 20 ans.</strong>
+
+                <br>
+
+                I am 20 years old.
+
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('J ai 20 ans')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🥶 Feelings</h3>
+
+            <p>
+                <strong>J'ai froid.</strong>
+            </p>
+
+            <p>
+                I am cold.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('J ai froid')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🍽️ Hunger</h3>
+
+            <p>
+                <strong>J'ai faim.</strong>
+            </p>
+
+            <p>
+                I am hungry.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('J ai faim')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>💧 Thirst</h3>
+
+            <p>
+                <strong>J'ai soif.</strong>
+            </p>
+
+            <p>
+                I am thirsty.
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('J ai soif')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- MEMORY -->
+
+    <h2 class="section-title">
+        🧠 Easy Memory Trick
+    </h2>
+
+
+    <div class="memory">
+
+        <h3>Remember these two!</h3>
+
+        <div class="memory-item">
+            ⭐ Être = To be
+        </div>
+
+        <div class="memory-item">
+            💙 Avoir = To have
+        </div>
+
+        <p style="margin-top:18px;">
+            <strong>Je suis</strong> = I am
+        </p>
+
+        <p style="margin-top:8px;">
+            <strong>J'ai</strong> = I have
+        </p>
+
+    </div>
+
+
+    <!-- ACTIVITY -->
+
+    <h2 class="section-title">
+        🎯 Choose the Correct Verb
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Choose the correct sentence:
+        </p>
+
+        <div class="question">
+            "I am a student."
+        </div>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('a')">
+
+            J'ai étudiant.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('b')">
+
+            Je suis étudiant.
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('c')">
+
+            Je as étudiant.
+
+        </button>
+
+
+        <div
+            id="feedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <h2 class="section-title">
+        🏆 Quick Quiz
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Complete the sentence:
+        </p>
+
+        <div class="question">
+            J'___ 20 ans.
+        </div>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('a')">
+
+            suis
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('b')">
+
+            ai
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="quizAnswer('c')">
+
+            es
+
+        </button>
+
+
+        <div
+            id="quizFeedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="score-box">
+
+        <h2>🌱 Great Progress!</h2>
+
+        <p style="margin-top:10px;">
+            You now know two of the most important verbs in French.
+        </p>
+
+        <p style="margin-top:10px;">
+            Keep practicing them in simple sentences! 💜
+        </p>
+
+    </div>
+
+
+    <a
+        href="a1.html"
+        class="back-btn">
+
+        ← Back to A1 Grammar
+
+    </a>
+
+</div>
+
+
+<footer>
+
+    🌸 Bonjour Lab • Learn French step by step
+
+</footer>
+
+
+<script>
+
+function speak(text) {
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.85;
+
+    window.speechSynthesis.cancel();
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+function checkAnswer(answer) {
+
+    const feedback =
+        document.getElementById("feedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Correct! <strong>Je suis étudiant.</strong> means I am a student.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! Remember: <strong>être = to be</strong>.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+
+function quizAnswer(answer) {
+
+    const feedback =
+        document.getElementById("quizFeedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Excellent! <strong>J'ai 20 ans.</strong> is correct.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! Age is expressed with <strong>avoir</strong> in French.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

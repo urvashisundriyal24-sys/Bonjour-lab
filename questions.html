@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Asking Questions | Bonjour Lab</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef7ff, #fff0f7, #fff9df);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #00b4db, #7b2ff7);
+    color: white;
+    text-align: center;
+    padding: 38px 20px;
+    border-radius: 0 0 35px 35px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* MAIN */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* INTRO */
+
+.intro {
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    color: #7b2ff7;
+    margin-bottom: 12px;
+}
+
+/* SECTION TITLES */
+
+.section-title {
+    text-align: center;
+    color: #6a1b9a;
+    font-size: 28px;
+    margin: 35px 0 20px;
+}
+
+/* METHOD CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card:nth-child(1) {
+    background: #ffd9e6;
+}
+
+.card:nth-child(2) {
+    background: #dceeff;
+}
+
+.card:nth-child(3) {
+    background: #e0ffd9;
+}
+
+.card:nth-child(4) {
+    background: #fff0b8;
+}
+
+.card h3 {
+    color: #6a1b9a;
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    margin: 7px 0;
+}
+
+.example {
+    background: rgba(255,255,255,0.75);
+    padding: 12px;
+    border-radius: 13px;
+    margin-top: 12px;
+}
+
+.listen-btn {
+    border: none;
+    background: #7b2ff7;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.listen-btn:hover {
+    background: #5d20c9;
+}
+
+/* TABLE */
+
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #7b2ff7;
+    color: white;
+}
+
+tr:hover {
+    background: #faf0ff;
+}
+
+/* TIP */
+
+.tip {
+    background: linear-gradient(135deg, #fff4a8, #ffd8e8);
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.tip h3 {
+    color: #6a1b9a;
+    margin-bottom: 12px;
+}
+
+/* ACTIVITY */
+
+.activity {
+    background: white;
+    padding: 28px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.question {
+    font-size: 23px;
+    color: #6a1b9a;
+    margin: 20px 0;
+}
+
+.option {
+    border: none;
+    padding: 12px 22px;
+    margin: 7px;
+    border-radius: 20px;
+    background: #e7d7ff;
+    color: #4a148c;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.option:hover {
+    transform: scale(1.05);
+    background: #d2b5ff;
+}
+
+.feedback {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+/* SCORE */
+
+.score-box {
+    background: #e8f7ff;
+    padding: 22px;
+    border-radius: 22px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 35px auto;
+    padding: 14px 25px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>❓ Asking Questions</h1>
+
+    <p>
+        Learn how to ask simple questions in French!
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+        <h2>✨ How Do We Ask Questions?</h2>
+
+        <p>
+            French has several easy ways to ask questions.
+        </p>
+
+        <p style="margin-top:10px;">
+            At A1 level, start with these three methods:
+            <strong>intonation</strong>,
+            <strong>est-ce que</strong>,
+            and simple question words.
+        </p>
+
+    </div>
+
+
+    <!-- METHOD 1 -->
+
+    <h2 class="section-title">
+        🗣️ 1. Intonation
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>💬 Easy Method</h3>
+
+            <p>
+                You can turn a statement into a question
+                simply by raising your voice at the end.
+            </p>
+
+            <div class="example">
+
+                <strong>Tu parles français.</strong>
+
+                <br><br>
+
+                You speak French.
+
+                <br><br>
+
+                <strong>Tu parles français ?</strong>
+
+                <br>
+
+                Do you speak French?
+
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Tu parles français ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>☕ Example</h3>
+
+            <p>
+                <strong>Tu aimes le café ?</strong>
+            </p>
+
+            <p>
+                Do you like coffee?
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Tu aimes le café ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- METHOD 2 -->
+
+    <h2 class="section-title">
+        ⭐ 2. Est-ce que
+    </h2>
+
+
+    <div class="tip">
+
+        <h3>💡 A very useful question pattern</h3>
+
+        <p>
+            Put <strong>Est-ce que</strong> before the sentence.
+        </p>
+
+        <p style="font-size:22px; margin-top:15px;">
+            <strong>Est-ce que + sentence ?</strong>
+        </p>
+
+        <p style="margin-top:15px;">
+            Example:
+            <strong>Est-ce que tu parles français ?</strong>
+        </p>
+
+        <p style="margin-top:8px;">
+            Do you speak French?
+        </p>
+
+        <button
+            class="listen-btn"
+            onclick="speak('Est-ce que tu parles français ?')">
+
+            🔊 Listen
+
+        </button>
+
+    </div>
+
+
+    <!-- METHOD 3 -->
+
+    <h2 class="section-title">
+        🔍 3. Question Words
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>❓ Qui ?</h3>
+
+            <p>
+                <strong>Who?</strong>
+            </p>
+
+            <div class="example">
+                <strong>Qui est-ce ?</strong>
+                <br>
+                Who is it?
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Qui est-ce ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>❓ Où ?</h3>
+
+            <p>
+                <strong>Where?</strong>
+            </p>
+
+            <div class="example">
+                <strong>Où habites-tu ?</strong>
+                <br>
+                Where do you live?
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Où habites-tu ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>❓ Quand ?</h3>
+
+            <p>
+                <strong>When?</strong>
+            </p>
+
+            <div class="example">
+                <strong>Quand arrives-tu ?</strong>
+                <br>
+                When are you arriving?
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Quand arrives-tu ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>❓ Pourquoi ?</h3>
+
+            <p>
+                <strong>Why?</strong>
+            </p>
+
+            <div class="example">
+                <strong>Pourquoi tu ris ?</strong>
+                <br>
+                Why are you laughing?
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Pourquoi tu ris ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>❓ Comment ?</h3>
+
+            <p>
+                <strong>How?</strong>
+            </p>
+
+            <div class="example">
+                <strong>Comment ça va ?</strong>
+                <br>
+                How are you?
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Comment ça va ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>❓ Quoi ?</h3>
+
+            <p>
+                <strong>What?</strong>
+            </p>
+
+            <div class="example">
+                <strong>Tu fais quoi ?</strong>
+                <br>
+                What are you doing?
+            </div>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Tu fais quoi ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION WORD TABLE -->
+
+    <h2 class="section-title">
+        📚 Question Word Cheat Sheet
+    </h2>
+
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>French</th>
+                <th>English</th>
+                <th>Example</th>
+            </tr>
+
+            <tr>
+                <td>Qui ?</td>
+                <td>Who?</td>
+                <td>Qui est-ce ?</td>
+            </tr>
+
+            <tr>
+                <td>Où ?</td>
+                <td>Where?</td>
+                <td>Où habites-tu ?</td>
+            </tr>
+
+            <tr>
+                <td>Quand ?</td>
+                <td>When?</td>
+                <td>Quand arrives-tu ?</td>
+            </tr>
+
+            <tr>
+                <td>Pourquoi ?</td>
+                <td>Why?</td>
+                <td>Pourquoi tu ris ?</td>
+            </tr>
+
+            <tr>
+                <td>Comment ?</td>
+                <td>How?</td>
+                <td>Comment ça va ?</td>
+            </tr>
+
+            <tr>
+                <td>Quoi ?</td>
+                <td>What?</td>
+                <td>Tu fais quoi ?</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- EST-CE QUE EXAMPLES -->
+
+    <h2 class="section-title">
+        🌟 Est-ce que Practice
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>📚 Study</h3>
+
+            <p>
+                <strong>Tu étudies le français.</strong>
+            </p>
+
+            <p>
+                ↓
+            </p>
+
+            <p>
+                <strong>Est-ce que tu étudies le français ?</strong>
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Est-ce que tu étudies le français ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🍕 Food</h3>
+
+            <p>
+                <strong>Tu aimes la pizza.</strong>
+            </p>
+
+            <p>
+                ↓
+            </p>
+
+            <p>
+                <strong>Est-ce que tu aimes la pizza ?</strong>
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Est-ce que tu aimes la pizza ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🏠 Home</h3>
+
+            <p>
+                <strong>Tu habites à Delhi.</strong>
+            </p>
+
+            <p>
+                ↓
+            </p>
+
+            <p>
+                <strong>Est-ce que tu habites à Delhi ?</strong>
+            </p>
+
+            <button
+                class="listen-btn"
+                onclick="speak('Est-ce que tu habites à Delhi ?')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTIVITY -->
+
+    <h2 class="section-title">
+        🎯 Choose the Correct Question
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Which question means
+            <strong>"Where do you live?"</strong>
+        </p>
+
+        <div class="question">
+            🏠 Where do you live?
+        </div>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('a')">
+
+            Comment habites-tu ?
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('b')">
+
+            Où habites-tu ?
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="checkAnswer('c')">
+
+            Pourquoi habites-tu ?
+
+        </button>
+
+
+        <div
+            id="feedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <h2 class="section-title">
+        🏆 Quick Quiz
+    </h2>
+
+
+    <div class="activity">
+
+        <p>
+            Which word means
+            <strong>"Why?"</strong>?
+        </p>
+
+
+        <div style="margin-top:20px;">
+
+            <button
+                class="option"
+                onclick="quizAnswer('a')">
+
+                Où
+
+            </button>
+
+
+            <button
+                class="option"
+                onclick="quizAnswer('b')">
+
+                Pourquoi
+
+            </button>
+
+
+            <button
+                class="option"
+                onclick="quizAnswer('c')">
+
+                Quand
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="quizFeedback"
+            class="feedback">
+        </div>
+
+    </div>
+
+
+    <!-- MEMORY -->
+
+    <div class="score-box">
+
+        <h2>🧠 Easy Memory Trick</h2>
+
+        <p style="margin-top:12px;">
+            <strong>Qui</strong> = Who
+        </p>
+
+        <p>
+            <strong>Où</strong> = Where
+        </p>
+
+        <p>
+            <strong>Quand</strong> = When
+        </p>
+
+        <p>
+            <strong>Pourquoi</strong> = Why
+        </p>
+
+        <p>
+            <strong>Comment</strong> = How
+        </p>
+
+        <p>
+            <strong>Quoi</strong> = What
+        </p>
+
+    </div>
+
+
+    <a
+        href="a1.html"
+        class="back-btn">
+
+        ← Back to A1 Grammar
+
+    </a>
+
+</div>
+
+
+<footer>
+
+    🌸 Bonjour Lab • Learn French step by step
+
+</footer>
+
+
+<script>
+
+function speak(text) {
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.85;
+
+    window.speechSynthesis.cancel();
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+function checkAnswer(answer) {
+
+    const feedback =
+        document.getElementById("feedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Correct! <strong>Où habites-tu ?</strong> means Where do you live?";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! Look for the question word meaning Where.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+
+function quizAnswer(answer) {
+
+    const feedback =
+        document.getElementById("quizFeedback");
+
+
+    if (answer === "b") {
+
+        feedback.innerHTML =
+            "🎉 Excellent! <strong>Pourquoi</strong> means Why.";
+
+        feedback.style.color = "green";
+
+    } else {
+
+        feedback.innerHTML =
+            "❌ Try again! Remember: Où = Where, Quand = When.";
+
+        feedback.style.color = "crimson";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

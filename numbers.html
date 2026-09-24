@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Numbers | Bonjour Lab</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #fff1f2, #eef2ff, #ecfeff);
+        color: #222;
+    }
+
+    header {
+        background: linear-gradient(135deg, #7c3aed, #ec4899);
+        color: white;
+        text-align: center;
+        padding: 45px 20px;
+        border-radius: 0 0 30px 30px;
+    }
+
+    header h1 {
+        font-size: 42px;
+        margin: 0 0 10px;
+    }
+
+    header p {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 35px auto;
+        padding: 0 20px;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 30px;
+        margin: 35px 0 20px;
+        color: #6d28d9;
+    }
+
+    .number-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 18px;
+    }
+
+    .number-card {
+        background: white;
+        border-radius: 20px;
+        padding: 22px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        transition: 0.25s;
+        border: 2px solid transparent;
+    }
+
+    .number-card:hover {
+        transform: translateY(-6px);
+        border-color: #c084fc;
+    }
+
+    .number {
+        font-size: 32px;
+        font-weight: bold;
+        color: #ec4899;
+    }
+
+    .french {
+        font-size: 23px;
+        font-weight: bold;
+        color: #4f46e5;
+        margin: 8px 0;
+    }
+
+    .pronunciation {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    button {
+        border: none;
+        background: linear-gradient(135deg, #6366f1, #ec4899);
+        color: white;
+        padding: 10px 18px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    .info-box {
+        background: white;
+        padding: 25px;
+        border-radius: 22px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        margin-top: 30px;
+        line-height: 1.7;
+    }
+
+    .tip {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        padding: 20px;
+        border-radius: 18px;
+        margin-top: 25px;
+    }
+
+    .practice {
+        background: linear-gradient(135deg, #ede9fe, #fce7f3);
+        padding: 30px;
+        border-radius: 25px;
+        margin-top: 35px;
+        text-align: center;
+    }
+
+    .practice input {
+        padding: 12px;
+        border: 2px solid #c4b5fd;
+        border-radius: 12px;
+        width: 180px;
+        margin: 10px;
+        font-size: 16px;
+    }
+
+    #result {
+        font-weight: bold;
+        margin-top: 15px;
+        font-size: 18px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        color: #666;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔢 French Numbers</h1>
+    <p>Learn to count from 0 to 20 with confidence!</p>
+</header>
+
+<div class="container">
+
+    <h2 class="section-title">🌸 Numbers 0–20</h2>
+
+    <div class="number-grid">
+
+        <div class="number-card">
+            <div class="number">0</div>
+            <div class="french">zéro</div>
+            <div class="pronunciation">zeh-ro</div>
+            <button onclick="speak('zéro')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">1</div>
+            <div class="french">un</div>
+            <div class="pronunciation">uhn</div>
+            <button onclick="speak('un')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">2</div>
+            <div class="french">deux</div>
+            <div class="pronunciation">duh</div>
+            <button onclick="speak('deux')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">3</div>
+            <div class="french">trois</div>
+            <div class="pronunciation">trwah</div>
+            <button onclick="speak('trois')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">4</div>
+            <div class="french">quatre</div>
+            <div class="pronunciation">katr</div>
+            <button onclick="speak('quatre')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">5</div>
+            <div class="french">cinq</div>
+            <div class="pronunciation">sank</div>
+            <button onclick="speak('cinq')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">6</div>
+            <div class="french">six</div>
+            <div class="pronunciation">sees</div>
+            <button onclick="speak('six')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">7</div>
+            <div class="french">sept</div>
+            <div class="pronunciation">set</div>
+            <button onclick="speak('sept')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">8</div>
+            <div class="french">huit</div>
+            <div class="pronunciation">weet</div>
+            <button onclick="speak('huit')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">9</div>
+            <div class="french">neuf</div>
+            <div class="pronunciation">nurf</div>
+            <button onclick="speak('neuf')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">10</div>
+            <div class="french">dix</div>
+            <div class="pronunciation">dees</div>
+            <button onclick="speak('dix')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">11</div>
+            <div class="french">onze</div>
+            <div class="pronunciation">onz</div>
+            <button onclick="speak('onze')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">12</div>
+            <div class="french">douze</div>
+            <div class="pronunciation">dooz</div>
+            <button onclick="speak('douze')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">13</div>
+            <div class="french">treize</div>
+            <div class="pronunciation">trez</div>
+            <button onclick="speak('treize')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">14</div>
+            <div class="french">quatorze</div>
+            <div class="pronunciation">ka-torz</div>
+            <button onclick="speak('quatorze')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">15</div>
+            <div class="french">quinze</div>
+            <div class="pronunciation">kanz</div>
+            <button onclick="speak('quinze')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">16</div>
+            <div class="french">seize</div>
+            <div class="pronunciation">sez</div>
+            <button onclick="speak('seize')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">17</div>
+            <div class="french">dix-sept</div>
+            <div class="pronunciation">dees-set</div>
+            <button onclick="speak('dix-sept')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">18</div>
+            <div class="french">dix-huit</div>
+            <div class="pronunciation">deez-weet</div>
+            <button onclick="speak('dix-huit')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">19</div>
+            <div class="french">dix-neuf</div>
+            <div class="pronunciation">deez-nurf</div>
+            <button onclick="speak('dix-neuf')">🔊 Listen</button>
+        </div>
+
+        <div class="number-card">
+            <div class="number">20</div>
+            <div class="french">vingt</div>
+            <div class="pronunciation">van</div>
+            <button onclick="speak('vingt')">🔊 Listen</button>
+        </div>
+
+    </div>
+
+    <div class="info-box">
+        <h2>💡 Useful Expressions</h2>
+
+        <p><strong>J'ai vingt ans.</strong> → I am 20 years old.</p>
+        <p><strong>J'ai deux frères.</strong> → I have two brothers.</p>
+        <p><strong>J'ai trois livres.</strong> → I have three books.</p>
+        <p><strong>Il y a cinq étudiants.</strong> → There are five students.</p>
+    </div>
+
+    <div class="tip">
+        <h2>🌟 Learning Tip</h2>
+        <p>
+            Say each number aloud several times. Then try counting
+            from 0 to 20 without looking at the screen!
+        </p>
+    </div>
+
+    <div class="practice">
+        <h2>🎯 Quick Practice</h2>
+        <p>What is <strong>quinze</strong>?</p>
+
+        <input type="number" id="answer" placeholder="Your answer">
+
+        <br>
+
+        <button onclick="checkAnswer()">Check Answer</button>
+
+        <div id="result"></div>
+    </div>
+
+</div>
+
+<footer>
+    🌸 Learn French with Bonjour Lab 🌸
+</footer>
+
+<script>
+
+function speak(text) {
+    const speech = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(speech);
+}
+
+function checkAnswer() {
+    const answer = document.getElementById("answer").value;
+    const result = document.getElementById("result");
+
+    if (answer == "15") {
+        result.innerHTML = "🎉 Correct! Très bien!";
+    } else {
+        result.innerHTML = "💡 Try again!";
+    }
+}
+
+</script>
+
+</body>
+</html>

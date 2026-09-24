@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Food & Drinks | Bonjour Lab</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff7ed, #fef2f2, #ecfeff);
+    color: #222;
+}
+
+header {
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+    border-radius: 0 0 30px 30px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin: 0 0 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    color: #ea580c;
+    font-size: 30px;
+    margin: 35px 0 20px;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.emoji {
+    font-size: 48px;
+}
+
+.french {
+    font-size: 23px;
+    font-weight: bold;
+    color: #ea580c;
+    margin: 10px 0;
+}
+
+.english {
+    font-size: 17px;
+}
+
+.pronunciation {
+    color: #777;
+    font-size: 14px;
+    margin: 8px 0 15px;
+}
+
+button {
+    border: none;
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.info-box {
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    margin-top: 35px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    line-height: 1.8;
+}
+
+.tip {
+    background: linear-gradient(135deg, #fef3c7, #fed7aa);
+    padding: 22px;
+    border-radius: 20px;
+    margin-top: 25px;
+}
+
+.practice {
+    background: linear-gradient(135deg, #ffedd5, #fee2e2);
+    padding: 30px;
+    border-radius: 25px;
+    margin-top: 35px;
+    text-align: center;
+}
+
+.practice input {
+    padding: 12px;
+    width: 220px;
+    border: 2px solid #fdba74;
+    border-radius: 12px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🍎 La nourriture et les boissons</h1>
+    <p>Learn useful French food and drink vocabulary!</p>
+</header>
+
+<div class="container">
+
+<h2 class="section-title">🍽️ Food Vocabulary</h2>
+
+<div class="food-grid">
+
+<div class="card">
+<div class="emoji">🍎</div>
+<div class="french">une pomme</div>
+<div class="english">An apple</div>
+<div class="pronunciation">oon pom</div>
+<button onclick="speak('une pomme')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🍌</div>
+<div class="french">une banane</div>
+<div class="english">A banana</div>
+<div class="pronunciation">oon bah-nahn</div>
+<button onclick="speak('une banane')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🍊</div>
+<div class="french">une orange</div>
+<div class="english">An orange</div>
+<div class="pronunciation">oon oh-rahnzh</div>
+<button onclick="speak('une orange')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🍞</div>
+<div class="french">le pain</div>
+<div class="english">Bread</div>
+<div class="pronunciation">luh pan</div>
+<button onclick="speak('le pain')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🧀</div>
+<div class="french">le fromage</div>
+<div class="english">Cheese</div>
+<div class="pronunciation">luh froh-maazh</div>
+<button onclick="speak('le fromage')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🍚</div>
+<div class="french">le riz</div>
+<div class="english">Rice</div>
+<div class="pronunciation">luh ree</div>
+<button onclick="speak('le riz')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🥔</div>
+<div class="french">une pomme de terre</div>
+<div class="english">A potato</div>
+<div class="pronunciation">oon pom duh tair</div>
+<button onclick="speak('une pomme de terre')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🍅</div>
+<div class="french">une tomate</div>
+<div class="english">A tomato</div>
+<div class="pronunciation">oon toh-maht</div>
+<button onclick="speak('une tomate')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🥕</div>
+<div class="french">une carotte</div>
+<div class="english">A carrot</div>
+<div class="pronunciation">oon kah-roht</div>
+<button onclick="speak('une carotte')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🍗</div>
+<div class="french">le poulet</div>
+<div class="english">Chicken</div>
+<div class="pronunciation">luh poo-lay</div>
+<button onclick="speak('le poulet')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🥚</div>
+<div class="french">un œuf</div>
+<div class="english">An egg</div>
+<div class="pronunciation">uhn uf</div>
+<button onclick="speak('un œuf')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🍫</div>
+<div class="french">le chocolat</div>
+<div class="english">Chocolate</div>
+<div class="pronunciation">luh shoh-koh-lah</div>
+<button onclick="speak('le chocolat')">🔊 Listen</button>
+</div>
+
+</div>
+
+<h2 class="section-title">🥤 Drinks</h2>
+
+<div class="food-grid">
+
+<div class="card">
+<div class="emoji">💧</div>
+<div class="french">l'eau</div>
+<div class="english">Water</div>
+<div class="pronunciation">loh</div>
+<button onclick="speak('l’eau')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🥛</div>
+<div class="french">le lait</div>
+<div class="english">Milk</div>
+<div class="pronunciation">luh leh</div>
+<button onclick="speak('le lait')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">☕</div>
+<div class="french">le café</div>
+<div class="english">Coffee</div>
+<div class="pronunciation">luh kah-fay</div>
+<button onclick="speak('le café')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🍵</div>
+<div class="french">le thé</div>
+<div class="english">Tea</div>
+<div class="pronunciation">luh tay</div>
+<button onclick="speak('le thé')">🔊 Listen</button>
+</div>
+
+<div class="card">
+<div class="emoji">🧃</div>
+<div class="french">le jus</div>
+<div class="english">Juice</div>
+<div class="pronunciation">luh zhoo</div>
+<button onclick="speak('le jus')">🔊 Listen</button>
+</div>
+
+</div>
+
+<div class="info-box">
+<h2>🗣️ Useful Sentences</h2>
+
+<p><strong>J'aime le fromage.</strong> → I like cheese.</p>
+
+<p><strong>Je mange une pomme.</strong> → I am eating an apple.</p>
+
+<p><strong>Je bois de l'eau.</strong> → I drink water.</p>
+
+<p><strong>J'aime le chocolat.</strong> → I like chocolate.</p>
+
+<p><strong>Je voudrais un café.</strong> → I would like a coffee.</p>
+
+<p><strong>Je n'aime pas le lait.</strong> → I don't like milk.</p>
+</div>
+
+<div class="tip">
+<h2>💡 Learning Tip</h2>
+<p>
+Look at your kitchen and try to name five things in French.
+Then make one sentence with each word!
+</p>
+</div>
+
+<div class="practice">
+<h2>🎯 Quick Practice</h2>
+
+<p>What does <strong>le pain</strong> mean?</p>
+
+<input type="text" id="answer" placeholder="Type your answer">
+
+<br>
+
+<button onclick="checkAnswer()">Check Answer</button>
+
+<div id="result"></div>
+</div>
+
+</div>
+
+<footer>
+🌸 Learn French with Bonjour Lab 🌸
+</footer>
+
+<script>
+
+function speak(text) {
+    const speech = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(speech);
+}
+
+function checkAnswer() {
+
+    const answer = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const result = document.getElementById("result");
+
+    if (answer === "bread") {
+        result.innerHTML = "🎉 Correct! Très bien!";
+    } else {
+        result.innerHTML = "💡 Try again!";
+    }
+}
+
+</script>
+
+</body>
+</html>
